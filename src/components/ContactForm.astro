@@ -1,0 +1,103 @@
+---
+import type { ContactFormContent } from '../data/types';
+
+interface Props {
+  content: ContactFormContent;
+  formId?: string;
+  action?: string;
+}
+
+const { content, formId = 'contact-form', action } = Astro.props;
+const fieldId = (name: string) => `${formId}-${name}`;
+---
+
+<form
+  id={formId}
+  action={action}
+  method="post"
+  class="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2"
+>
+  <p class="col-span-full text-xs font-medium leading-[1.2] tracking-[-0.015em] text-white/80">
+    {content.requiredHint}
+  </p>
+
+  <div class="form-field">
+    <label for={fieldId('name')} class="form-label">{content.nameLabel}</label>
+    <input
+      id={fieldId('name')}
+      name="name"
+      type="text"
+      autocomplete="name"
+      required
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for={fieldId('organisation')} class="form-label">
+      {content.organisationLabel}
+    </label>
+    <input
+      id={fieldId('organisation')}
+      name="organisation"
+      type="text"
+      autocomplete="organization"
+      required
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for={fieldId('email')} class="form-label">{content.emailLabel}</label>
+    <input
+      id={fieldId('email')}
+      name="email"
+      type="email"
+      autocomplete="email"
+      inputmode="email"
+      required
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for={fieldId('project-type')} class="form-label">
+      {content.projectTypeLabel}
+    </label>
+    <select
+      id={fieldId('project-type')}
+      name="projectType"
+      required
+      class="form-control cursor-pointer"
+    >
+      <option value="" disabled selected>{content.projectTypePlaceholder}</option>
+      {
+        content.projectTypeOptions.map((option) => (
+          <option value={option.value}>{option.label}</option>
+        ))
+      }
+    </select>
+  </div>
+
+  <div class="form-field col-span-full">
+    <label for={fieldId('message')} class="form-label">{content.messageLabel}</label>
+    <textarea
+      id={fieldId('message')}
+      name="message"
+      rows="4"
+      minlength="10"
+      required
+      class="form-control min-h-28 resize-y"
+    ></textarea>
+  </div>
+
+  <div class="col-span-full pt-1">
+    <button
+      type="submit"
+      class="inline-flex min-h-[49px] items-center gap-2.5 rounded-full border border-white bg-transparent px-[22px] py-[14px] text-[15px] font-bold leading-[1.2] tracking-[-0.015em] text-white transition-colors hover:bg-white hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+    >
+      <span>{content.submitLabel}</span>
+      <span aria-hidden="true" class="text-base">↗</span>
+    </button>
+  </div>
+</form>

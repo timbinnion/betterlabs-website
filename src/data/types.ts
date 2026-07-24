@@ -96,6 +96,22 @@ export interface CtaContent {
   body: string;
   action: LinkContent;
   footerMeta: string;
+  form: ContactFormContent;
+}
+
+export interface ContactFormContent {
+  nameLabel: string;
+  organisationLabel: string;
+  emailLabel: string;
+  projectTypeLabel: string;
+  projectTypePlaceholder: string;
+  projectTypeOptions: Array<{
+    value: string;
+    label: string;
+  }>;
+  messageLabel: string;
+  requiredHint: string;
+  submitLabel: string;
 }
 
 export interface UiContent {
