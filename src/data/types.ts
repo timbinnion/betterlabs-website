@@ -112,6 +112,11 @@ export interface ContactFormContent {
   messageLabel: string;
   requiredHint: string;
   submitLabel: string;
+  submittingLabel: string;
+  closeLabel: string;
+  successMessage: string;
+  errorMessage: string;
+  endpointMissingMessage: string;
 }
 
 export interface UiContent {

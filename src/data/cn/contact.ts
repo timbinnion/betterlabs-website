@@ -28,4 +28,9 @@ export const contactForm: ContactFormContent = {
   messageLabel: 'Message',
   requiredHint: 'All fields are required.',
   submitLabel: 'Send enquiry',
+  submittingLabel: 'Sending enquiry…',
+  closeLabel: 'Close form',
+  successMessage: 'Thank you. Your enquiry has been sent.',
+  errorMessage: 'Something went wrong. Please try again.',
+  endpointMissingMessage: 'The contact form is not configured yet. Please try again later.',
 };
