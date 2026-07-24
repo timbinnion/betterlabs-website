@@ -1,13 +1,13 @@
 ---
 import type { HomepageContent } from '../data/homepage';
-import {
-  localeLabels,
-  localePaths,
-  supportedLocales,
-  type Locale,
-} from '../data/site';
-import LanguageSwitcher from './LanguageSwitcher.astro';
-import SectionPlaceholder from './SectionPlaceholder.astro';
+import type { Locale } from '../data/site';
+import AboutSection from './AboutSection.astro';
+import AudiencesSection from './AudiencesSection.astro';
+import FinalCta from './FinalCta.astro';
+import HeroSection from './HeroSection.astro';
+import ProjectCarousel from './ProjectCarousel.astro';
+import QuestionsSection from './QuestionsSection.astro';
+import ServicesSection from './ServicesSection.astro';
 
 interface Props {
   content: HomepageContent;
@@ -15,56 +15,12 @@ interface Props {
 }
 
 const { content, locale } = Astro.props;
-const languageOptions = supportedLocales.map((optionLocale) => ({
-  locale: optionLocale,
-  label: localeLabels[optionLocale],
-  href: localePaths[optionLocale],
-}));
 ---
 
-<header class="site-container section-spacing">
-  <p>{content.hero.eyebrow}</p>
-  <LanguageSwitcher
-    ariaLabel={content.ui.languageSwitcherLabel}
-    currentLocale={locale}
-    options={languageOptions}
-  />
-  <h1>{content.hero.headline[0]}</h1>
-  <p>{content.hero.body}</p>
-</header>
-
-<SectionPlaceholder
-  id="questions"
-  heading={content.questions.title}
-  description={content.questions.eyebrow}
-/>
-<SectionPlaceholder
-  id="services"
-  heading={content.services.title}
-  description={content.services.eyebrow}
-/>
-<SectionPlaceholder
-  id="projects"
-  heading={content.projects.title}
-  description={content.projects.eyebrow}
-/>
-<SectionPlaceholder
-  id="audiences"
-  heading={content.audiences.title}
-  description={content.audiences.eyebrow}
-/>
-<SectionPlaceholder
-  id="clients"
-  heading={content.clients.eyebrow}
-  description={content.clients.names.join(' · ')}
-/>
-<SectionPlaceholder
-  id="about"
-  heading={content.about.statement}
-  description={content.about.body}
-/>
-<SectionPlaceholder
-  id="contact"
-  heading={content.cta.headline}
-  description={content.cta.body}
-/>
+<HeroSection content={content} locale={locale} />
+<QuestionsSection content={content.questions} />
+<ServicesSection content={content.services} />
+<ProjectCarousel content={content.projects} />
+<AudiencesSection content={content.audiences} />
+<AboutSection clients={content.clients} about={content.about} />
+<FinalCta content={content.cta} />

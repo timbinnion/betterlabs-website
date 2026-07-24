@@ -17,7 +17,7 @@ const english: ServicesContent = {
         'Modular systems',
         'Life cycle assessment',
       ],
-      image: '/images/services/sustainable-design.webp',
+      image: '/images/services/sustainable-design.png',
     },
     {
       id: 'sustainable-strategy',
@@ -29,14 +29,14 @@ const english: ServicesContent = {
         'Sustainability roadmaps',
         'Innovation strategy',
       ],
-      image: '/images/services/sustainable-strategy.webp',
+      image: '/images/services/sustainable-strategy.png',
     },
     {
       id: 'sustainability-education',
       title: 'Sustainability Education',
       subtitle: 'Turning sustainability into action.',
       capabilities: ['Workshops', 'Training', 'Capability building'],
-      image: '/images/services/sustainability-education.webp',
+      image: '/images/services/sustainability-education.png',
     },
   ],
 };

@@ -1,0 +1,51 @@
+---
+import type { ServicesContent } from '../data/types';
+
+interface Props {
+  content: ServicesContent;
+}
+
+const { content } = Astro.props;
+---
+
+<section id="services" aria-labelledby="services-title" class="scroll-mt-8 bg-ink text-white">
+  <div class="site-container min-h-[946px] py-[110px]">
+    <div class="flex flex-col items-start justify-between gap-10 lg:flex-row lg:gap-16">
+      <div class="max-w-[760px]">
+        <p class="eyebrow">{content.eyebrow}</p>
+        <h2 id="services-title" class="mt-4 text-[52px] font-semibold leading-[1.08] tracking-[-0.015em]">
+          {content.title}
+        </h2>
+      </div>
+      <p class="max-w-[380px] text-[17px] leading-[1.45] tracking-[-0.015em] text-[#c7ccbd]">
+        {content.introduction}
+      </p>
+    </div>
+
+    <ol class="mt-[70px] grid list-none grid-cols-1 gap-[18px] p-0 md:grid-cols-3">
+      {
+        content.items.map((service, index) => (
+          <li class="min-h-[494px] rounded-[2px] bg-card-dark px-[30px] pb-[38px] pt-[34px]">
+            <p class="eyebrow">{String(index + 1).padStart(2, '0')}</p>
+            <img
+              src={service.image}
+              alt=""
+              width="104"
+              height="104"
+              class="mt-[18px] size-[104px] rounded-full object-cover"
+            />
+            <h3 class="mt-[18px] min-h-[66px] text-[30px] font-semibold leading-[1.1] tracking-[-0.015em]">
+              {service.title}
+            </h3>
+            <p class="mt-[18px] min-h-[45px] text-base font-medium leading-[1.4] tracking-[-0.015em] text-[#bfc7b2]">
+              {service.subtitle}
+            </p>
+            <ul class="mt-[18px] list-none p-0 text-[15px] leading-[1.7] tracking-[-0.015em]">
+              {service.capabilities.map((capability) => <li>{capability}</li>)}
+            </ul>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

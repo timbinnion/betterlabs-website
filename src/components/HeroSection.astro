@@ -1,0 +1,56 @@
+---
+import type { HomepageContent } from '../data/homepage';
+import type { Locale } from '../data/site';
+import ButtonLink from './ButtonLink.astro';
+import SiteHeader from './SiteHeader.astro';
+
+interface Props {
+  content: HomepageContent;
+  locale: Locale;
+}
+
+const { content, locale } = Astro.props;
+---
+
+<section class="relative isolate h-[900px] overflow-hidden bg-ink text-white">
+  <img
+    src="/images/hero/hero-background.jpg"
+    alt=""
+    width="2200"
+    height="1650"
+    class="absolute inset-0 -z-20 h-full w-full object-cover"
+  />
+  <div
+    aria-hidden="true"
+    class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(13,20,8,0.92)_0%,#8dc63f_61%,#d7df23_111%)] mix-blend-multiply"
+  ></div>
+
+  <SiteHeader content={content} locale={locale} />
+
+  <div class="site-container flex h-full flex-col pt-[122px]">
+    <div class="max-w-[1004px]">
+      <h1 class="text-[clamp(2.8rem,3.75vw,54px)] font-semibold leading-none tracking-[-0.015em]">
+        <span class="block">{content.hero.eyebrow}</span>
+        {
+          content.hero.headline.map((line, index) => (
+            <span class:list={['block', index === 1 && 'mt-[54px]']}>{line}</span>
+          ))
+        }
+      </h1>
+      <p class="mt-6 max-w-[720px] text-[23px] leading-[1.4] tracking-[-0.015em]">
+        {content.hero.body}
+      </p>
+      <div class="mt-[34px] flex flex-wrap gap-3.5">
+        <ButtonLink link={content.hero.primaryAction} />
+        <ButtonLink link={content.hero.secondaryAction} variant="outline" />
+      </div>
+    </div>
+
+    <div
+      class="mt-auto flex items-start justify-between pb-[30px] text-sm font-medium leading-[1.2] tracking-[-0.015em]"
+    >
+      <p>{content.hero.proof}</p>
+      <p class="text-right text-xs font-bold uppercase">{content.hero.location}</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+import type { HomepageContent } from '../data/homepage';
+import {
+  localeLabels,
+  localePaths,
+  site,
+  supportedLocales,
+  type Locale,
+} from '../data/site';
+import ButtonLink from './ButtonLink.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import Logo from './Logo.astro';
+
+interface Props {
+  content: HomepageContent;
+  locale: Locale;
+}
+
+const { content, locale } = Astro.props;
+const languageOptions = supportedLocales.map((optionLocale) => ({
+  locale: optionLocale,
+  label: localeLabels[optionLocale],
+  href: localePaths[optionLocale],
+}));
+---
+
+<header class="absolute inset-x-0 top-0 z-20">
+  <div class="site-container flex h-[144px] items-center justify-between">
+    <a href={localePaths[locale]} class="shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+      <Logo label={site.name} />
+    </a>
+
+    <div class="flex items-center gap-7">
+      <nav aria-label="Primary" class="hidden items-center gap-7 lg:flex">
+        <a class="nav-link" href="#questions">{content.questions.eyebrow}</a>
+        <a class="nav-link" href="#services">{content.services.eyebrow}</a>
+        <a class="nav-link" href="#projects">{content.projects.eyebrow}</a>
+        <a class="nav-link" href="#about">{content.about.eyebrow}</a>
+      </nav>
+      <LanguageSwitcher
+        ariaLabel={content.ui.languageSwitcherLabel}
+        currentLocale={locale}
+        options={languageOptions}
+      />
+      <div class="hidden sm:block">
+        <ButtonLink link={content.hero.primaryAction} />
+      </div>
+    </div>
+  </div>
+</header>

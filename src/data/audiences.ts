@@ -9,19 +9,19 @@ const english: AudiencesContent = {
       id: 'manufacturers',
       title: 'Product designers and manufacturers',
       body: 'Future-proof products through circular design.',
-      icon: '/images/audiences/manufacturers.webp',
+      icon: '/images/audiences/manufacturers.png',
     },
     {
       id: 'brands',
       title: 'Brands and businesses with ESG commitments',
       body: 'Turn sustainability commitments into customer value.',
-      icon: '/images/audiences/brands.webp',
+      icon: '/images/audiences/brands.png',
     },
     {
       id: 'experience-companies',
       title: 'Retail, exhibition and event companies',
       body: 'Create low-carbon spaces, reusable systems and circular experiences.',
-      icon: '/images/audiences/experience-companies.webp',
+      icon: '/images/audiences/experience-companies.png',
     },
   ],
 };

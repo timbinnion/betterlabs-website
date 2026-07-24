@@ -1,0 +1,101 @@
+---
+import type { ProjectsContent } from '../data/types';
+
+interface Props {
+  content: ProjectsContent;
+}
+
+const { content } = Astro.props;
+---
+
+<section id="projects" aria-labelledby="projects-title" class="scroll-mt-8 overflow-hidden bg-white">
+  <div class="site-container min-h-[1057px] py-[110px]">
+    <div class="flex items-start justify-between">
+      <div>
+        <p class="eyebrow">{content.eyebrow}</p>
+        <h2 id="projects-title" class="mt-[14px] text-[56px] font-semibold leading-[1.08] tracking-[-0.015em]">
+          {content.title}
+        </h2>
+      </div>
+      <div class="flex gap-2.5" data-carousel-controls>
+        <button type="button" class="carousel-control" data-carousel-previous aria-label={content.previousLabel}>
+          <span aria-hidden="true">01</span><span aria-hidden="true">←</span>
+        </button>
+        <button type="button" class="carousel-control carousel-control-next" data-carousel-next aria-label={content.nextLabel}>
+          <span aria-hidden="true">02</span><span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="project-track mt-[56px] flex snap-x snap-mandatory gap-[18px] overflow-x-auto scroll-smooth pb-4"
+      data-project-carousel
+      tabindex="0"
+    >
+      {
+        content.items.map((project, index) => (
+          <article
+            class:list={[
+              'project-card shrink-0 snap-start overflow-hidden bg-ink text-white',
+              index === 0 ? 'w-[600px]' : 'w-[430px]',
+            ]}
+          >
+            <img
+              src={project.image}
+              alt={project.title}
+              width="1063"
+              height="596"
+              class="h-[300px] w-full object-cover"
+            />
+            <div class="flex h-[370px] flex-col px-7 py-7">
+              <h3 class="text-[30px] font-semibold leading-[1.1] tracking-[-0.015em]">
+                {project.title}
+              </h3>
+              <p class="mt-[18px] max-w-[530px] text-[15px] leading-[1.45] tracking-[-0.015em] text-[#c7ccbd]">
+                {project.summary}
+              </p>
+              <ul class="mt-[18px] flex list-none flex-wrap gap-2 p-0">
+                {
+                  project.tags.map((tag) => (
+                    <li class="rounded-full bg-white px-[11px] py-[7px] text-xs font-medium leading-[1.2] text-ink">
+                      {tag}
+                    </li>
+                  ))
+                }
+              </ul>
+              <dl class="mt-auto flex gap-[30px]">
+                {
+                  project.metrics.map((metric) => (
+                    <div class="w-[120px]">
+                      <dt class="text-[30px] font-bold leading-[1.2] tracking-[-0.015em] text-brand-green">
+                        {metric.value}
+                      </dt>
+                      <dd class="mt-1 text-xs font-medium leading-[1.2]">{metric.label}</dd>
+                    </div>
+                  ))
+                }
+              </dl>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-project-carousel]').forEach((track) => {
+    const controls = track.parentElement?.querySelector<HTMLElement>('[data-carousel-controls]');
+    const previous = controls?.querySelector<HTMLButtonElement>('[data-carousel-previous]');
+    const next = controls?.querySelector<HTMLButtonElement>('[data-carousel-next]');
+
+    const move = (direction: number) => {
+      const card = track.querySelector<HTMLElement>('.project-card');
+      const distance = card ? card.offsetWidth + 18 : track.clientWidth;
+      track.scrollBy({ left: distance * direction, behavior: 'smooth' });
+    };
+
+    previous?.addEventListener('click', () => move(-1));
+    next?.addEventListener('click', () => move(1));
+  });
+</script>

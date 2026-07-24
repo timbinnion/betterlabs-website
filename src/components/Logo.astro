@@ -1,0 +1,15 @@
+---
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<img
+  src="/images/brand/betterlabs-logo-white.png"
+  alt={label}
+  width="194"
+  height="56"
+  class="h-14 w-[194px] object-contain"
+/>

@@ -1,0 +1,64 @@
+---
+import type { AboutContent, ClientsContent } from '../data/types';
+
+interface Props {
+  clients: ClientsContent;
+  about: AboutContent;
+}
+
+const { clients, about } = Astro.props;
+---
+
+<section id="about" aria-labelledby="about-title" class="scroll-mt-8 bg-white">
+  <div class="site-container min-h-[988px] py-[105px]">
+    <div class="flex items-start justify-between gap-8 pb-[38px]">
+      <p class="eyebrow shrink-0">{clients.eyebrow}</p>
+      <ul class="flex flex-1 list-none justify-between gap-6 p-0 text-[18px] font-bold leading-[1.2] tracking-[-0.015em]">
+        {clients.names.map((client) => <li>{client}</li>)}
+      </ul>
+    </div>
+
+    <div class="grid grid-cols-1 gap-[18px] md:grid-cols-2">
+      {
+        about.stories.map((story) => (
+          <article class="overflow-hidden bg-ink text-white">
+            <div class="grid h-[270px] grid-cols-2">
+              {
+                story.images.map((image) => (
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    width="322"
+                    height="421"
+                    class="h-full w-full object-cover"
+                  />
+                ))
+              }
+            </div>
+            <div class="flex min-h-[52px] items-center justify-between gap-4 px-5 py-[17px]">
+              <h3 class="text-[15px] font-bold leading-[1.2]">{story.title}</h3>
+              <p class="text-right text-[11px] font-bold uppercase leading-[1.2] text-brand-green">
+                {story.category}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-[54px] grid grid-cols-1 gap-[70px] border-t border-divider pt-12 lg:grid-cols-[720px_390px]">
+      <div>
+        <p class="eyebrow">{about.eyebrow}</p>
+        <h2 id="about-title" class="mt-5 text-[44px] font-semibold leading-[1.1] tracking-[-0.015em]">
+          {about.statement}
+        </h2>
+      </div>
+      <div>
+        <p class="text-[18px] leading-[1.45] tracking-[-0.015em] text-muted">{about.body}</p>
+        <p class="mt-[18px] text-[15px] font-semibold leading-[1.45] tracking-[-0.015em]">
+          {about.founder}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

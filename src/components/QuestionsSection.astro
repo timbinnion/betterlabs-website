@@ -1,0 +1,33 @@
+---
+import type { QuestionsContent } from '../data/types';
+
+interface Props {
+  content: QuestionsContent;
+}
+
+const { content } = Astro.props;
+---
+
+<section id="questions" aria-labelledby="questions-title" class="scroll-mt-8 bg-warm">
+  <div class="site-container min-h-[655px] py-[112px]">
+    <p class="eyebrow">{content.eyebrow}</p>
+    <h2 id="questions-title" class="mt-[52px] max-w-[1019px] text-[56px] font-semibold leading-[1.05] tracking-[-0.015em]">
+      {content.title}
+    </h2>
+    <ol class="mt-[70px] grid list-none grid-cols-1 gap-7 p-0 md:grid-cols-3">
+      {
+        content.items.map((item, index) => (
+          <li class="border-t-2 border-ink pt-6">
+            <p class="eyebrow">{String(index + 1).padStart(2, '0')}</p>
+            <h3 class="mt-5 max-w-[370px] text-[28px] font-semibold leading-[1.12] tracking-[-0.015em]">
+              {item.question}
+            </h3>
+            <p class="mt-5 max-w-[360px] text-[17px] leading-[1.45] tracking-[-0.015em] text-muted">
+              {item.answer}
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

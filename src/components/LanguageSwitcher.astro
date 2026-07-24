@@ -16,8 +16,8 @@ interface Props {
 const { ariaLabel, currentLocale, options } = Astro.props;
 ---
 
-<nav aria-label={ariaLabel}>
-  <ul class="language-switcher">
+<nav aria-label={ariaLabel} class="shrink-0">
+  <ul class="flex list-none gap-2 p-0 text-[11px] font-bold uppercase tracking-[-0.015em] text-white">
     {
       options.map((option) => (
         <li>
@@ -26,6 +26,12 @@ const { ariaLabel, currentLocale, options } = Astro.props;
             lang={option.locale}
             hreflang={option.locale}
             aria-current={option.locale === currentLocale ? 'page' : undefined}
+            class:list={[
+              'rounded-full border px-2 py-1 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
+              option.locale === currentLocale
+                ? 'border-white bg-white text-ink'
+                : 'border-white/50 hover:border-white',
+            ]}
           >
             {option.label}
           </a>

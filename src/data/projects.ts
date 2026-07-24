@@ -12,7 +12,7 @@ const english: ProjectsContent = {
       title: 'Fresco Air Purifier',
       summary:
         'Circular redesign of an air purifier to reduce carbon emissions and create a modular product-service system.',
-      image: '/images/projects/fresco-air-purifier.webp',
+      image: '/images/projects/fresco-air-purifier.jpg',
       tags: ['Circular Design', 'LCA', 'Business Model'],
       metrics: [
         { value: '-41%', label: 'carbon emissions' },
@@ -24,7 +24,7 @@ const english: ProjectsContent = {
       title: 'Eekö Table',
       summary:
         'A modular furniture system designed for longevity, repair and material recovery.',
-      image: '/images/projects/eeko-table.webp',
+      image: '/images/projects/eeko-table.jpg',
       tags: ['Furniture', 'Modularity', 'Buy-back'],
       metrics: [
         { value: '-40%', label: 'material impact' },
@@ -36,7 +36,7 @@ const english: ProjectsContent = {
       title: 'Circular Exhibition System',
       summary:
         'A reusable exhibition system designed to replace wasteful single-use builds.',
-      image: '/images/projects/circular-exhibition-system.webp',
+      image: '/images/projects/circular-exhibition-system.jpg',
       tags: ['Systems Design', 'LCA', 'Leasing'],
       metrics: [
         { value: '-90%', label: 'carbon emissions' },

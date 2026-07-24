@@ -15,11 +15,11 @@ const english: AboutContent = {
       category: 'Strategy + Education',
       images: [
         {
-          src: '/images/about/bootcamp-facilitation.webp',
+          src: '/images/about/bootcamp-facilitation.jpg',
           alt: 'Circularity Bootcamp facilitation',
         },
         {
-          src: '/images/about/bootcamp-activity.webp',
+          src: '/images/about/bootcamp-activity.jpg',
           alt: 'Circularity Bootcamp activity',
         },
       ],
@@ -30,11 +30,11 @@ const english: AboutContent = {
       category: 'Education in action',
       images: [
         {
-          src: '/images/about/rural-safari-fieldwork.webp',
+          src: '/images/about/rural-safari-fieldwork.jpg',
           alt: 'Rural Innovation Safari fieldwork',
         },
         {
-          src: '/images/about/rural-safari-facilitation.webp',
+          src: '/images/about/rural-safari-facilitation.jpg',
           alt: 'Rural Innovation Safari facilitation',
         },
       ],

@@ -1,0 +1,44 @@
+---
+import type { CtaContent } from '../data/types';
+import { site } from '../data/site';
+import ButtonLink from './ButtonLink.astro';
+import Logo from './Logo.astro';
+
+interface Props {
+  content: CtaContent;
+}
+
+const { content } = Astro.props;
+---
+
+<section id="contact" aria-labelledby="contact-title" class="relative isolate h-[746px] overflow-hidden bg-brand-green text-white">
+  <img
+    src="/images/cta/cta-background.png"
+    alt=""
+    width="1440"
+    height="746"
+    class="absolute inset-0 -z-20 h-full w-full object-cover"
+  />
+  <div
+    aria-hidden="true"
+    class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,#d7df23_0%,#8dc63f_48%,#39b54a_100%)] mix-blend-multiply"
+  ></div>
+
+  <div class="site-container flex h-full flex-col py-[122px]">
+    <p class="eyebrow text-white">{content.eyebrow}</p>
+    <h2 id="contact-title" class="mt-7 max-w-[733px] text-[68px] font-semibold leading-[1.05] tracking-[-0.015em]">
+      {content.headline}
+    </h2>
+    <p class="mt-7 max-w-[566px] text-[19px] leading-[1.4] tracking-[-0.015em]">
+      {content.body}
+    </p>
+    <div class="mt-7">
+      <ButtonLink link={content.action} variant="outline" />
+    </div>
+
+    <footer class="mt-auto flex items-end justify-between pt-14">
+      <Logo label={site.name} />
+      <p class="text-xs font-medium leading-[1.2] tracking-[-0.015em]">{content.footerMeta}</p>
+    </footer>
+  </div>
+</section>
