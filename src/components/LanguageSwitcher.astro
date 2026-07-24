@@ -1,0 +1,36 @@
+---
+import type { Locale } from '../data/site';
+
+interface LanguageOption {
+  locale: Locale;
+  label: string;
+  href: string;
+}
+
+interface Props {
+  ariaLabel: string;
+  currentLocale: Locale;
+  options: LanguageOption[];
+}
+
+const { ariaLabel, currentLocale, options } = Astro.props;
+---
+
+<nav aria-label={ariaLabel}>
+  <ul class="language-switcher">
+    {
+      options.map((option) => (
+        <li>
+          <a
+            href={option.href}
+            lang={option.locale}
+            hreflang={option.locale}
+            aria-current={option.locale === currentLocale ? 'page' : undefined}
+          >
+            {option.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

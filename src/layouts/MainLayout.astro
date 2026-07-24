@@ -3,16 +3,13 @@ import '../styles/global.css';
 import { site } from '../data/site';
 
 interface Props {
-  title?: string;
-  description?: string;
-  lang?: string;
+  title: string;
+  description: string;
+  lang: string;
+  skipLinkLabel: string;
 }
 
-const {
-  title = site.name,
-  description = site.description,
-  lang = site.defaultLocale,
-} = Astro.props;
+const { title, description, lang, skipLinkLabel } = Astro.props;
 
 const pageTitle = title === site.name ? title : `${title} | ${site.name}`;
 ---
@@ -27,7 +24,7 @@ const pageTitle = title === site.name ? title : `${title} | ${site.name}`;
     <title>{pageTitle}</title>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">{skipLinkLabel}</a>
     <main id="main-content">
       <slot />
     </main>

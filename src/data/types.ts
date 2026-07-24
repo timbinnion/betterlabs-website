@@ -1,0 +1,113 @@
+import type { Locale } from './site';
+
+export type Localized<T> = Record<Locale, T>;
+
+export interface LinkContent {
+  label: string;
+  href: string;
+}
+
+export interface HeroContent {
+  eyebrow: string;
+  headline: string[];
+  body: string;
+  primaryAction: LinkContent;
+  secondaryAction: LinkContent;
+  proof: string;
+  location: string;
+}
+
+export interface QuestionsContent {
+  eyebrow: string;
+  title: string;
+  items: Array<{
+    id: string;
+    question: string;
+    answer: string;
+  }>;
+}
+
+export interface ServicesContent {
+  eyebrow: string;
+  title: string;
+  introduction: string;
+  items: Array<{
+    id: string;
+    title: string;
+    subtitle: string;
+    capabilities: string[];
+    image: string;
+  }>;
+}
+
+export interface ProjectsContent {
+  eyebrow: string;
+  title: string;
+  previousLabel: string;
+  nextLabel: string;
+  items: Array<{
+    id: string;
+    title: string;
+    summary: string;
+    image: string;
+    tags: string[];
+    metrics: Array<{
+      value: string;
+      label: string;
+    }>;
+  }>;
+}
+
+export interface AudiencesContent {
+  eyebrow: string;
+  title: string;
+  items: Array<{
+    id: string;
+    title: string;
+    body: string;
+    icon: string;
+  }>;
+}
+
+export interface ClientsContent {
+  eyebrow: string;
+  names: string[];
+}
+
+export interface AboutContent {
+  eyebrow: string;
+  statement: string;
+  body: string;
+  founder: string;
+  stories: Array<{
+    id: string;
+    title: string;
+    category: string;
+    images: Array<{
+      src: string;
+      alt: string;
+    }>;
+  }>;
+}
+
+export interface CtaContent {
+  eyebrow: string;
+  headline: string;
+  body: string;
+  action: LinkContent;
+  footerMeta: string;
+}
+
+export interface UiContent {
+  pageTitle: string;
+  pageDescription: string;
+  skipLinkLabel: string;
+  languageSwitcherLabel: string;
+}
+
+export function untranslated<T>(content: T): Localized<T> {
+  return {
+    en: content,
+    zh: content,
+  };
+}
