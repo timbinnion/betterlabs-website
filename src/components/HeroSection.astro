@@ -31,9 +31,11 @@ const { content, locale } = Astro.props;
     <div class="max-w-[1004px]">
       <h1 class="text-[clamp(2.35rem,8.5vw,54px)] font-bold leading-[1.02] tracking-[-0.015em]">
         <span class="block">{content.hero.eyebrow}</span>
+        <span class="block">{content.hero.headline[0]}</span>
+        <span class="mt-8 block md:mt-[54px]">{content.hero.servicesLead}</span>
         {
-          content.hero.headline.map((line, index) => (
-            <span class:list={['block', index === 1 && 'mt-8 md:mt-[54px]']}>{line}</span>
+          content.hero.headline.slice(1).map((line) => (
+            <span class="block">{line}</span>
           ))
         }
       </h1>

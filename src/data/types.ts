@@ -10,6 +10,7 @@ export interface LinkContent {
 export interface HeroContent {
   eyebrow: string;
   headline: string[];
+  servicesLead: string;
   body: string;
   primaryAction: LinkContent;
   secondaryAction: LinkContent;

@@ -4,11 +4,12 @@ import { untranslated } from './types';
 const english: HeroContent = {
   eyebrow: 'We are (better)labs.',
   headline: [
-    'Sustainable innovation experts.',
+    '(sustainable) innovation experts.',
     '(sustainable) Design.',
     '(sustainable) Strategy.',
     '(sustainable) Education.',
   ],
+  servicesLead: 'We do',
   body:
     'We help manufacturers, brands and businesses redesign products, strategies and business models to reduce environmental impact while creating new value.',
   primaryAction: {
