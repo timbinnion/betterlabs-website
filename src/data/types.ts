@@ -40,22 +40,50 @@ export interface ServicesContent {
   }>;
 }
 
+export interface ImpactMetric {
+  value: string;
+  label: string;
+}
+
+export interface ProjectContent {
+  id: string;
+  title: string;
+  category: string;
+  summary: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  tags: string[];
+  metrics?: [] | [ImpactMetric] | [ImpactMetric, ImpactMetric];
+  featured?: boolean;
+  visible?: boolean;
+}
+
 export interface ProjectsContent {
   eyebrow: string;
   title: string;
   previousLabel: string;
   nextLabel: string;
-  items: Array<{
-    id: string;
-    title: string;
-    summary: string;
-    image: string;
-    tags: string[];
-    metrics: Array<{
-      value: string;
-      label: string;
-    }>;
-  }>;
+  items: ProjectContent[];
+}
+
+export interface WorkshopOffering {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export interface WorkshopsContent {
+  eyebrow: string;
+  headline: string;
+  positioning: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  offerings: WorkshopOffering[];
+  bespoke: string;
 }
 
 export interface AudiencesContent {

@@ -1,0 +1,70 @@
+---
+import type { WorkshopsContent } from '../data/types';
+
+interface Props {
+  content: WorkshopsContent;
+}
+
+const { content } = Astro.props;
+---
+
+<section
+  id="workshops"
+  aria-labelledby="workshops-title"
+  class="bg-ink text-white"
+>
+  <div class="site-container py-[110px]">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(440px,0.95fr)] lg:gap-[70px]">
+      <div class="relative min-h-[520px] overflow-hidden">
+        <img
+          src={content.image.src}
+          alt={content.image.alt}
+          width="320"
+          height="421"
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          aria-hidden="true"
+          class="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgba(14,15,14,0.88)_100%)]"
+        ></div>
+        <p class="absolute bottom-7 left-7 right-7 max-w-[510px] text-[18px] font-medium leading-[1.4] tracking-[-0.015em]">
+          {content.positioning}
+        </p>
+      </div>
+
+      <div>
+        <p class="eyebrow">{content.eyebrow}</p>
+        <h2
+          id="workshops-title"
+          class="mt-5 text-[clamp(2.5rem,3.6vw,52px)] font-semibold leading-[1.08] tracking-[-0.015em]"
+        >
+          {content.headline}
+        </h2>
+
+        <ol class="mt-10 list-none border-t border-white/50 p-0">
+          {
+            content.offerings.map((offering, index) => (
+              <li class="grid grid-cols-[34px_1fr] gap-4 border-b border-white/30 py-5">
+                <p class="text-[13px] font-bold leading-[1.2] text-brand-green">
+                  {String(index + 1).padStart(2, '0')}
+                </p>
+                <div>
+                  <h3 class="text-[20px] font-semibold leading-[1.15] tracking-[-0.015em]">
+                    {offering.title}
+                  </h3>
+                  <p class="mt-2 text-[14px] leading-[1.45] tracking-[-0.015em] text-[#c7ccbd]">
+                    {offering.description}
+                  </p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+
+        <p class="mt-6 text-[15px] font-semibold leading-[1.4] tracking-[-0.015em] text-brand-green">
+          {content.bespoke}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

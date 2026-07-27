@@ -8,6 +8,7 @@ import { questions } from './questions';
 import { services } from './services';
 import type { Locale } from './site';
 import { ui } from './ui';
+import { workshops } from './workshops';
 
 export function getHomepageContent(locale: Locale) {
   return {
@@ -16,6 +17,7 @@ export function getHomepageContent(locale: Locale) {
     questions: questions[locale],
     services: services[locale],
     projects: projects[locale],
+    workshops: workshops[locale],
     audiences: audiences[locale],
     clients: clients[locale],
     about: about[locale],

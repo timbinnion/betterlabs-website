@@ -6,6 +6,9 @@ interface Props {
 }
 
 const { content } = Astro.props;
+const visibleProjects = content.items.filter((project) => project.visible !== false);
+const featuredProjectId =
+  visibleProjects.find((project) => project.featured)?.id ?? visibleProjects[0]?.id;
 ---
 
 <section id="projects" aria-labelledby="projects-title" class="scroll-mt-8 overflow-hidden bg-white">
@@ -33,22 +36,25 @@ const { content } = Astro.props;
       tabindex="0"
     >
       {
-        content.items.map((project, index) => (
+        visibleProjects.map((project) => (
           <article
             class:list={[
               'project-card shrink-0 snap-start overflow-hidden bg-ink text-white',
-              index === 0 ? 'w-[600px]' : 'w-[430px]',
+              project.id === featuredProjectId ? 'w-[600px]' : 'w-[430px]',
             ]}
           >
             <img
-              src={project.image}
-              alt={project.title}
+              src={project.image.src}
+              alt={project.image.alt}
               width="1063"
               height="596"
               class="h-[300px] w-full object-cover"
             />
             <div class="flex h-[370px] flex-col px-7 py-7">
-              <h3 class="text-[30px] font-semibold leading-[1.1] tracking-[-0.015em]">
+              <p class="text-xs font-bold uppercase leading-[1.2] tracking-[-0.015em] text-brand-green">
+                {project.category}
+              </p>
+              <h3 class="mt-3 text-[30px] font-semibold leading-[1.1] tracking-[-0.015em]">
                 {project.title}
               </h3>
               <p class="mt-[18px] max-w-[530px] text-[15px] leading-[1.45] tracking-[-0.015em] text-[#c7ccbd]">
@@ -63,9 +69,9 @@ const { content } = Astro.props;
                   ))
                 }
               </ul>
-              <dl class="mt-auto flex gap-[30px]">
+              <dl class="mt-auto flex min-h-[72px] gap-[30px]">
                 {
-                  project.metrics.map((metric) => (
+                  project.metrics?.map((metric) => (
                     <div class="w-[120px]">
                       <dt class="text-[30px] font-bold leading-[1.2] tracking-[-0.015em] text-brand-green">
                         {metric.value}

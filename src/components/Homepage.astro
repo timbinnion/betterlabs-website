@@ -8,6 +8,7 @@ import HeroSection from './HeroSection.astro';
 import ProjectCarousel from './ProjectCarousel.astro';
 import QuestionsSection from './QuestionsSection.astro';
 import ServicesSection from './ServicesSection.astro';
+import WorkshopSection from './WorkshopSection.astro';
 
 interface Props {
   content: HomepageContent;
@@ -21,6 +22,7 @@ const { content, locale } = Astro.props;
 <QuestionsSection content={content.questions} />
 <ServicesSection content={content.services} />
 <ProjectCarousel content={content.projects} />
+<WorkshopSection content={content.workshops} />
 <AudiencesSection content={content.audiences} />
 <AboutSection clients={content.clients} about={content.about} />
 <FinalCta content={content.cta} />
