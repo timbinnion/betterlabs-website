@@ -52,6 +52,82 @@ const circularExhibitionSystem: ProjectContent = {
   ],
 };
 
+const elumin8HouseholdEnergyMonitoring: ProjectContent = {
+  id: 'elumin8-household-energy-monitoring',
+  title: 'Elumin8 Household Energy Monitoring',
+  category: 'Sustainable Innovation',
+  summary:
+    'A human-centred energy monitoring system that translated household electricity data into an intuitive physical display and digital experience, helping people understand and reduce their energy use.',
+  image: {
+    src: '/images/projects/elumin8-household-energy-monitoring.jpg',
+    alt: 'Elumin8 household energy monitoring physical display and digital experience',
+  },
+  tags: ['Human-Centred Design', 'IoT Innovation', 'Behaviour Change'],
+  metrics: [
+    { value: '2', label: 'Markets explored' },
+    { value: '1', label: 'Functional MVP developed' },
+  ],
+  featured: false,
+  visible: true,
+};
+
+const sustainableProteinInnovationChina: ProjectContent = {
+  id: 'sustainable-protein-innovation-china',
+  title: 'Sustainable Protein Innovation in China',
+  category: 'Sustainable Strategy',
+  summary:
+    'Consumer research and innovation workshops helped Silver Fern Farms understand how sustainability is perceived in China and develop new product, packaging and communication opportunities aligned with local values.',
+  image: {
+    src: '/images/projects/sustainable-protein-innovation-china.jpg',
+    alt: 'Sustainable protein consumer research and innovation workshop in China',
+  },
+  tags: ['Consumer Research', 'Innovation Strategy', 'Brand Positioning'],
+  metrics: [
+    { value: '1', label: 'Sustainability framework' },
+    { value: '3', label: 'Innovation territories explored' },
+  ],
+  featured: false,
+  visible: true,
+};
+
+const circularityBootcampDescoursCabaud: ProjectContent = {
+  id: 'circularity-bootcamp-descours-cabaud',
+  title: 'Circularity Bootcamp for Descours & Cabaud',
+  category: 'Sustainability Education',
+  summary:
+    'A hands-on circularity programme that helped procurement and quality teams connect regulatory drivers with sourcing decisions, identify a priority product category and define practical decarbonisation initiatives.',
+  image: {
+    src: '/images/projects/circularity-bootcamp-descours-cabaud.jpg',
+    alt: 'Descours & Cabaud teams participating in a circularity bootcamp',
+  },
+  tags: ['Circular Economy', 'Sustainable Procurement', 'Capability Building'],
+  metrics: [
+    { value: '14', label: 'Participants' },
+    { value: '1', label: 'Priority product line identified' },
+  ],
+  featured: false,
+  visible: true,
+};
+
+const ruralInnovationSafari: ProjectContent = {
+  id: 'rural-innovation-safari',
+  title: 'Rural Innovation Safari',
+  category: 'Sustainability Education',
+  summary:
+    'A four-day field-based innovation programme in rural China, where international students used design research and co-creation to develop responses to local waste, safety and cultural challenges.',
+  image: {
+    src: '/images/projects/rural-innovation-safari.jpg',
+    alt: 'International students conducting field research during the Rural Innovation Safari',
+  },
+  tags: ['Design Thinking', 'Field Research', 'Social Innovation'],
+  metrics: [
+    { value: '4 days', label: 'Immersive field programme' },
+    { value: '3', label: 'Challenge areas explored' },
+  ],
+  featured: false,
+  visible: true,
+};
+
 export const projects: ProjectsContent = {
   eyebrow: 'Selected work',
   title: 'Proof, not promises.',
@@ -59,5 +135,13 @@ export const projects: ProjectsContent = {
   nextLabel: 'Next project',
   // Add a project by copying one typed object above, adding its local image,
   // then placing the object in this array. Array order controls carousel order.
-  items: [frescoAirPurifier, eekoTable, circularExhibitionSystem],
+  items: [
+    frescoAirPurifier,
+    eekoTable,
+    circularExhibitionSystem,
+    elumin8HouseholdEnergyMonitoring,
+    sustainableProteinInnovationChina,
+    circularityBootcampDescoursCabaud,
+    ruralInnovationSafari,
+  ],
 };
