@@ -3,6 +3,7 @@ import type { CtaContent } from '../data/types';
 import { site, type Locale } from '../data/site';
 import ContactForm from './ContactForm.astro';
 import Logo from './Logo.astro';
+import WeChatContact from './WeChatContact.astro';
 
 interface Props {
   content: CtaContent;
@@ -64,6 +65,8 @@ const { content, locale } = Astro.props;
         </div>
       </div>
     </div>
+
+    <WeChatContact content={content.wechat} />
 
     <footer class="mt-auto flex flex-col items-start justify-between gap-6 pt-12 sm:flex-row sm:items-end md:pt-14">
       <Logo label={site.name} />

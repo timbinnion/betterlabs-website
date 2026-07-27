@@ -17,10 +17,20 @@ const shared = {
 export const cta: Localized<CtaContent> = {
   en: {
     ...shared,
+    wechat: {
+      title: 'Prefer WeChat?',
+      caption: 'Scan to connect directly.',
+      imageAlt: 'Better Labs WeChat QR code',
+    },
     form: englishContactForm,
   },
   zh: {
     ...shared,
+    wechat: {
+      title: '更喜欢使用微信？',
+      caption: '扫描二维码即可联系。',
+      imageAlt: 'Better Labs WeChat QR code',
+    },
     form: chineseContactForm,
   },
 };

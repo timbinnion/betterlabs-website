@@ -1,0 +1,28 @@
+---
+import type { WeChatContactContent } from '../data/types';
+
+interface Props {
+  content: WeChatContactContent;
+}
+
+const { content } = Astro.props;
+---
+
+<aside
+  aria-label={content.title}
+  class="mt-7 flex w-fit flex-col items-start sm:mt-8 max-sm:mx-auto max-sm:items-center max-sm:text-center"
+>
+  <p class="text-sm font-bold leading-[1.2] tracking-[-0.015em] text-white">
+    {content.title}
+  </p>
+  <img
+    src="/images/cta/wechat-qr-web.png"
+    alt={content.imageAlt}
+    width="140"
+    height="140"
+    class="mt-3 size-[104px] object-contain sm:size-[116px] lg:size-[132px]"
+  />
+  <p class="mt-3 text-xs font-medium leading-[1.35] tracking-[-0.01em] text-white/85">
+    {content.caption}
+  </p>
+</aside>

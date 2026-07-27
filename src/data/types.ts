@@ -131,8 +131,15 @@ export interface CtaContent {
   headline: string;
   body: string;
   action: LinkContent;
+  wechat: WeChatContactContent;
   footerMeta: string;
   form: ContactFormContent;
+}
+
+export interface WeChatContactContent {
+  title: string;
+  caption: string;
+  imageAlt: string;
 }
 
 export interface ContactFormContent {
