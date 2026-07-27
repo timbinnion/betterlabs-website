@@ -4,6 +4,7 @@ export type Locale = (typeof supportedLocales)[number];
 
 export const site = {
   name: '(better)labs',
+  url: 'https://betterlabs.cc',
   defaultLocale: 'en' satisfies Locale,
   supportedLocales,
 } as const;
