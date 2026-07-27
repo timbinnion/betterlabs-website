@@ -3,24 +3,45 @@ import '../styles/global.css';
 import { site } from '../data/site';
 
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   lang: string;
   skipLinkLabel: string;
 }
 
 const { title, description, lang, skipLinkLabel } = Astro.props;
 
-const pageTitle = title === site.name ? title : `${title} | ${site.name}`;
+const pageTitle = title ?? `${site.name} | Sustainable Innovation Experts`;
+const pageDescription =
+  description ??
+  'Helping manufacturers, brands and businesses redesign products, services and strategies for a more sustainable future.';
+
+// TODO: Set this to '/images/brand/og-image.jpg' once the Open Graph image is exported.
+const ogImage: string | undefined = undefined;
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
+    <meta name="description" content={pageDescription} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#39B54A" />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <link rel="icon" href="/images/brand/betterlabs-favicon.ico" sizes="any" />
+    <link
+      rel="icon"
+      href="/images/brand/betterlabs-favicon.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="/images/brand/betterlabs-favicon.svg"
+      type="image/svg+xml"
+    />
+    <link rel="apple-touch-icon" href="/images/brand/apple-touch-icon.png" />
     <link
       rel="preload"
       href="/fonts/inter-variable.woff2"

@@ -2,9 +2,9 @@ import type { UiContent } from './types';
 import { untranslated } from './types';
 
 const english: UiContent = {
-  pageTitle: 'Sustainable innovation experts',
+  pageTitle: '(better)labs | Sustainable Innovation Experts',
   pageDescription:
-    'Sustainable innovation expertise for products, strategies and business models.',
+    'Helping manufacturers, brands and businesses redesign products, services and strategies for a more sustainable future.',
   skipLinkLabel: 'Skip to content',
   languageSwitcherLabel: 'Choose language',
   primaryNavigationLabel: 'Primary navigation',
