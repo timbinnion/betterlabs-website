@@ -9,11 +9,11 @@ const { content } = Astro.props;
 ---
 
 <section id="services" aria-labelledby="services-title" class="scroll-mt-8 bg-ink text-white">
-  <div class="site-container min-h-[946px] py-[110px]">
+  <div class="site-container py-20 md:py-24 lg:py-[110px]">
     <div class="flex flex-col items-start justify-between gap-10 lg:flex-row lg:gap-16">
       <div class="max-w-[760px]">
         <p class="eyebrow">{content.eyebrow}</p>
-        <h2 id="services-title" class="mt-4 text-[52px] font-semibold leading-[1.08] tracking-[-0.015em]">
+        <h2 id="services-title" class="mt-4 text-[clamp(2.25rem,4.5vw,52px)] font-bold leading-[1.08] tracking-[-0.015em]">
           {content.title}
         </h2>
       </div>
@@ -22,10 +22,10 @@ const { content } = Astro.props;
       </p>
     </div>
 
-    <ol class="mt-[70px] grid list-none grid-cols-1 gap-[18px] p-0 md:grid-cols-3">
+    <ol class="mt-12 grid list-none grid-cols-1 gap-[18px] p-0 md:grid-cols-2 lg:mt-[70px] xl:grid-cols-3">
       {
         content.items.map((service, index) => (
-          <li class="min-h-[494px] rounded-[2px] bg-card-dark px-[30px] pb-[38px] pt-[34px]">
+          <li class="rounded-[2px] bg-card-dark px-6 pb-8 pt-7 md:min-h-[470px] md:px-[30px] md:pb-[38px] md:pt-[34px] xl:min-h-[494px]">
             <p class="eyebrow">{String(index + 1).padStart(2, '0')}</p>
             <img
               src={service.image}
@@ -34,10 +34,10 @@ const { content } = Astro.props;
               height="104"
               class="mt-[18px] size-[104px] rounded-full object-cover"
             />
-            <h3 class="mt-[18px] min-h-[66px] text-[30px] font-semibold leading-[1.1] tracking-[-0.015em]">
+            <h3 class="mt-[18px] text-[clamp(1.6rem,3vw,30px)] font-bold leading-[1.1] tracking-[-0.015em] md:min-h-[66px]">
               {service.title}
             </h3>
-            <p class="mt-[18px] min-h-[45px] text-base font-medium leading-[1.4] tracking-[-0.015em] text-[#bfc7b2]">
+            <p class="mt-[18px] text-base font-medium leading-[1.4] tracking-[-0.015em] text-[#bfc7b2] md:min-h-[45px]">
               {service.subtitle}
             </p>
             <ul class="mt-[18px] list-none p-0 text-[15px] leading-[1.7] tracking-[-0.015em]">

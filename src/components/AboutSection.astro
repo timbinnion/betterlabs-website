@@ -10,10 +10,10 @@ const { clients, about } = Astro.props;
 ---
 
 <section id="about" aria-labelledby="about-title" class="scroll-mt-8 bg-white">
-  <div class="site-container min-h-[988px] py-[105px]">
-    <div class="flex items-start justify-between gap-8 pb-[38px]">
+  <div class="site-container py-20 md:py-24 lg:py-[105px]">
+    <div class="flex flex-col items-start gap-7 pb-[38px] lg:flex-row lg:justify-between lg:gap-8">
       <p class="eyebrow shrink-0">{clients.eyebrow}</p>
-      <ul class="flex flex-1 list-none justify-between gap-6 p-0 text-[18px] font-bold leading-[1.2] tracking-[-0.015em]">
+      <ul class="flex w-full list-none flex-wrap gap-x-8 gap-y-5 p-0 text-[17px] font-bold leading-[1.2] tracking-[-0.015em] lg:flex-1 lg:justify-between lg:text-[18px]">
         {clients.names.map((client) => <li>{client}</li>)}
       </ul>
     </div>
@@ -22,7 +22,7 @@ const { clients, about } = Astro.props;
       {
         about.stories.map((story) => (
           <article class="overflow-hidden bg-ink text-white">
-            <div class="grid h-[270px] grid-cols-2">
+            <div class="grid h-[220px] grid-cols-2 sm:h-[270px]">
               {
                 story.images.map((image) => (
                   <img
@@ -35,7 +35,7 @@ const { clients, about } = Astro.props;
                 ))
               }
             </div>
-            <div class="flex min-h-[52px] items-center justify-between gap-4 px-5 py-[17px]">
+            <div class="flex min-h-[52px] flex-col items-start justify-between gap-2 px-5 py-[17px] sm:flex-row sm:items-center sm:gap-4">
               <h3 class="text-[15px] font-bold leading-[1.2]">{story.title}</h3>
               <p class="text-right text-[11px] font-bold uppercase leading-[1.2] text-brand-green">
                 {story.category}
@@ -46,10 +46,10 @@ const { clients, about } = Astro.props;
       }
     </div>
 
-    <div class="mt-[54px] grid grid-cols-1 gap-[70px] border-t border-divider pt-12 lg:grid-cols-[720px_390px]">
+    <div class="mt-[54px] grid grid-cols-1 gap-10 border-t border-divider pt-12 xl:grid-cols-[minmax(0,720px)_minmax(0,390px)] xl:gap-[70px]">
       <div>
         <p class="eyebrow">{about.eyebrow}</p>
-        <h2 id="about-title" class="mt-5 text-[44px] font-semibold leading-[1.1] tracking-[-0.015em]">
+        <h2 id="about-title" class="mt-5 max-w-[720px] text-[clamp(2.25rem,4vw,44px)] font-bold leading-[1.1] tracking-[-0.015em]">
           {about.statement}
         </h2>
       </div>

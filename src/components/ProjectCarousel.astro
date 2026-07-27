@@ -7,16 +7,24 @@ interface Props {
 
 const { content } = Astro.props;
 const visibleProjects = content.items.filter((project) => project.visible !== false);
-const featuredProjectId =
-  visibleProjects.find((project) => project.featured)?.id ?? visibleProjects[0]?.id;
+const featuredIndex = visibleProjects.findIndex((project) => project.featured);
+const featuredProject = featuredIndex >= 0 ? visibleProjects[featuredIndex] : undefined;
+const orderedProjects = featuredProject
+  ? [
+      featuredProject,
+      ...visibleProjects.slice(0, featuredIndex),
+      ...visibleProjects.slice(featuredIndex + 1),
+    ]
+  : visibleProjects;
+const featuredProjectId = featuredProject?.id;
 ---
 
 <section id="projects" aria-labelledby="projects-title" class="scroll-mt-8 overflow-hidden bg-white">
-  <div class="site-container min-h-[1057px] py-[110px]">
-    <div class="flex items-start justify-between">
+  <div class="site-container py-20 md:py-24 lg:py-[110px]">
+    <div class="flex flex-col items-start justify-between gap-7 sm:flex-row">
       <div>
         <p class="eyebrow">{content.eyebrow}</p>
-        <h2 id="projects-title" class="mt-[14px] text-[56px] font-semibold leading-[1.08] tracking-[-0.015em]">
+        <h2 id="projects-title" class="mt-[14px] text-[clamp(2.25rem,5vw,56px)] font-bold leading-[1.08] tracking-[-0.015em]">
           {content.title}
         </h2>
       </div>
@@ -31,16 +39,18 @@ const featuredProjectId =
     </div>
 
     <div
-      class="project-track mt-[56px] flex snap-x snap-mandatory gap-[18px] overflow-x-auto scroll-smooth pb-4"
+      class="project-track mt-10 flex snap-x snap-mandatory gap-[18px] overflow-x-auto overscroll-x-contain scroll-smooth pb-4 md:mt-[56px]"
       data-project-carousel
       tabindex="0"
     >
       {
-        visibleProjects.map((project) => (
+        orderedProjects.map((project) => (
           <article
             class:list={[
               'project-card shrink-0 snap-start overflow-hidden bg-ink text-white',
-              project.id === featuredProjectId ? 'w-[600px]' : 'w-[430px]',
+              project.id === featuredProjectId
+                ? 'w-[min(88vw,600px)]'
+                : 'w-[min(82vw,430px)]',
             ]}
           >
             <img
@@ -48,13 +58,13 @@ const featuredProjectId =
               alt={project.image.alt}
               width="1063"
               height="596"
-              class="h-[300px] w-full object-cover"
+              class="h-[210px] w-full object-cover sm:h-[250px] md:h-[300px]"
             />
-            <div class="flex h-[370px] flex-col px-7 py-7">
+            <div class="flex min-h-[500px] flex-col px-5 py-6 sm:min-h-[460px] sm:px-7 sm:py-7 md:min-h-[420px]">
               <p class="text-xs font-bold uppercase leading-[1.2] tracking-[-0.015em] text-brand-green">
                 {project.category}
               </p>
-              <h3 class="mt-3 text-[30px] font-semibold leading-[1.1] tracking-[-0.015em]">
+              <h3 class="mt-3 text-[clamp(1.55rem,4vw,30px)] font-bold leading-[1.1] tracking-[-0.015em]">
                 {project.title}
               </h3>
               <p class="mt-[18px] max-w-[530px] text-[15px] leading-[1.45] tracking-[-0.015em] text-[#c7ccbd]">
@@ -69,10 +79,10 @@ const featuredProjectId =
                   ))
                 }
               </ul>
-              <dl class="mt-auto flex min-h-[72px] gap-[30px]">
+              <dl class="mt-auto grid min-h-[72px] grid-cols-2 gap-4 pt-6 sm:gap-[30px]">
                 {
                   project.metrics?.map((metric) => (
-                    <div class="w-[120px]">
+                    <div class="min-w-0">
                       <dt class="text-[30px] font-bold leading-[1.2] tracking-[-0.015em] text-brand-green">
                         {metric.value}
                       </dt>

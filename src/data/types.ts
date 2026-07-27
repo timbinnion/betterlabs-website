@@ -152,6 +152,9 @@ export interface UiContent {
   pageDescription: string;
   skipLinkLabel: string;
   languageSwitcherLabel: string;
+  primaryNavigationLabel: string;
+  mobileMenuOpenLabel: string;
+  mobileMenuCloseLabel: string;
 }
 
 export function untranslated<T>(content: T): Localized<T> {

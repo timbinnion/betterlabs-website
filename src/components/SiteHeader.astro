@@ -22,29 +22,137 @@ const languageOptions = supportedLocales.map((optionLocale) => ({
   label: localeLabels[optionLocale],
   href: localePaths[optionLocale],
 }));
+const navigationItems = [
+  { label: content.questions.eyebrow, href: '#questions' },
+  { label: content.services.eyebrow, href: '#services' },
+  { label: content.projects.eyebrow, href: '#projects' },
+  { label: content.about.eyebrow, href: '#about' },
+];
 ---
 
-<header class="absolute inset-x-0 top-0 z-20">
-  <div class="site-container flex h-[144px] items-center justify-between">
-    <a href={localePaths[locale]} class="shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+<header class="absolute inset-x-0 top-0 z-20" data-site-header>
+  <div class="site-container flex h-[104px] items-center justify-between gap-4 md:h-32 xl:h-36">
+    <a
+      href={localePaths[locale]}
+      class="shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+    >
       <Logo label={site.name} />
     </a>
 
-    <div class="flex items-center gap-7">
-      <nav aria-label="Primary" class="hidden items-center gap-7 lg:flex">
-        <a class="nav-link" href="#questions">{content.questions.eyebrow}</a>
-        <a class="nav-link" href="#services">{content.services.eyebrow}</a>
-        <a class="nav-link" href="#projects">{content.projects.eyebrow}</a>
-        <a class="nav-link" href="#about">{content.about.eyebrow}</a>
+    <div class="hidden items-center gap-7 xl:flex">
+      <nav aria-label={content.ui.primaryNavigationLabel} class="flex items-center gap-7">
+        {navigationItems.map((item) => <a class="nav-link" href={item.href}>{item.label}</a>)}
       </nav>
       <LanguageSwitcher
         ariaLabel={content.ui.languageSwitcherLabel}
         currentLocale={locale}
         options={languageOptions}
       />
-      <div class="hidden sm:block">
-        <ButtonLink link={content.hero.primaryAction} />
-      </div>
+      <ButtonLink link={content.hero.primaryAction} />
+    </div>
+
+    <div class="flex items-center gap-3 xl:hidden">
+      <LanguageSwitcher
+        ariaLabel={content.ui.languageSwitcherLabel}
+        currentLocale={locale}
+        options={languageOptions}
+      />
+      <button
+        type="button"
+        class="mobile-menu-trigger"
+        aria-label={content.ui.mobileMenuOpenLabel}
+        aria-expanded="false"
+        aria-controls="mobile-navigation"
+        data-menu-open
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="mobile-navigation"
+    class="mobile-navigation"
+    aria-hidden="true"
+    data-mobile-navigation
+  >
+    <div class="flex items-center justify-between border-b border-white/20 pb-5">
+      <Logo label={site.name} />
+      <button
+        type="button"
+        class="mobile-menu-close"
+        aria-label={content.ui.mobileMenuCloseLabel}
+        data-menu-close
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <nav aria-label={content.ui.primaryNavigationLabel} class="mt-7">
+      <ul class="list-none space-y-1 p-0">
+        {
+          navigationItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="block border-b border-white/20 py-4 text-xl font-bold leading-[1.2] text-white"
+                data-menu-link
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div class="mt-7">
+      <LanguageSwitcher
+        ariaLabel={content.ui.languageSwitcherLabel}
+        currentLocale={locale}
+        options={languageOptions}
+      />
+    </div>
+    <div class="mt-7">
+      <ButtonLink link={content.hero.primaryAction} />
     </div>
   </div>
 </header>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-site-header]').forEach((header) => {
+    const openButton = header.querySelector<HTMLButtonElement>('[data-menu-open]');
+    const closeButton = header.querySelector<HTMLButtonElement>('[data-menu-close]');
+    const panel = header.querySelector<HTMLElement>('[data-mobile-navigation]');
+    const links = header.querySelectorAll<HTMLAnchorElement>(
+      '[data-mobile-navigation] a',
+    );
+
+    const setOpen = (open: boolean) => {
+      header.toggleAttribute('data-menu-active', open);
+      openButton?.setAttribute('aria-expanded', String(open));
+      panel?.setAttribute('aria-hidden', String(!open));
+      document.body.classList.toggle('menu-open', open);
+
+      if (open) {
+        window.setTimeout(() => closeButton?.focus({ preventScroll: true }), 50);
+      } else {
+        openButton?.focus({ preventScroll: true });
+      }
+    };
+
+    openButton?.addEventListener('click', () => setOpen(true));
+    closeButton?.addEventListener('click', () => setOpen(false));
+    links.forEach((link) => link.addEventListener('click', () => setOpen(false)));
+
+    header.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && header.hasAttribute('data-menu-active')) {
+        setOpen(false);
+      }
+    });
+
+    window.matchMedia('(min-width: 1280px)').addEventListener('change', (event) => {
+      if (event.matches && header.hasAttribute('data-menu-active')) setOpen(false);
+    });
+  });
+</script>

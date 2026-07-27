@@ -29,7 +29,7 @@ const { ariaLabel, currentLocale, options } = Astro.props;
             class:list={[
               'rounded-full border px-2 py-1 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
               option.locale === currentLocale
-                ? 'border-white bg-white text-ink'
+                ? 'language-link-active border-white bg-white'
                 : 'border-white/50 hover:border-white',
             ]}
           >
@@ -40,3 +40,9 @@ const { ariaLabel, currentLocale, options } = Astro.props;
     }
   </ul>
 </nav>
+
+<style>
+  .language-link-active {
+    color: var(--color-ink);
+  }
+</style>

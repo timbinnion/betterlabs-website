@@ -9,15 +9,15 @@ const { content } = Astro.props;
 ---
 
 <section aria-labelledby="audiences-title" class="bg-warm">
-  <div class="site-container min-h-[792px] py-[112px]">
+  <div class="site-container py-20 md:py-24 lg:py-[112px]">
     <p class="eyebrow">{content.eyebrow}</p>
-    <h2 id="audiences-title" class="mt-[50px] max-w-[950px] text-[52px] font-semibold leading-[1.08] tracking-[-0.015em]">
+    <h2 id="audiences-title" class="mt-8 max-w-[950px] text-[clamp(2.25rem,4.5vw,52px)] font-bold leading-[1.08] tracking-[-0.015em] md:mt-[50px]">
       {content.title}
     </h2>
-    <ol class="mt-[50px] grid list-none grid-cols-1 gap-[22px] p-0 md:grid-cols-3">
+    <ol class="mt-10 grid list-none grid-cols-1 gap-[22px] p-0 md:grid-cols-2 md:mt-[50px] xl:grid-cols-3">
       {
         content.items.map((audience, index) => (
-          <li class="min-h-[318px] bg-white px-[26px] pb-[34px] pt-7">
+          <li class="bg-white px-6 pb-8 pt-7 md:min-h-[318px] md:px-[26px] md:pb-[34px]">
             <p class="eyebrow">{String(index + 1).padStart(2, '0')}</p>
             <img
               src={audience.icon}
@@ -26,7 +26,7 @@ const { content } = Astro.props;
               height="88"
               class="mt-4 size-[88px] rounded-full"
             />
-            <h3 class="mt-4 max-w-[345px] text-[27px] font-semibold leading-[1.1] tracking-[-0.015em]">
+            <h3 class="mt-4 max-w-[345px] text-[clamp(1.45rem,3vw,27px)] font-bold leading-[1.1] tracking-[-0.015em]">
               {audience.title}
             </h3>
             <p class="mt-4 max-w-[345px] text-base leading-[1.45] tracking-[-0.015em] text-muted">

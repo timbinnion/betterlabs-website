@@ -30,10 +30,10 @@ const formspreeEndpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
     class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,#d7df23_0%,#8dc63f_48%,#39b54a_100%)] mix-blend-multiply"
   ></div>
 
-  <div class="site-container flex min-h-[746px] flex-col py-[122px]">
+  <div class="site-container flex min-h-[746px] flex-col py-20 md:py-24 lg:py-[122px]">
     <div>
       <p class="eyebrow text-white">{content.eyebrow}</p>
-      <h2 id="contact-title" class="mt-7 max-w-[733px] text-[clamp(3rem,4.75vw,68px)] font-semibold leading-[1.05] tracking-[-0.015em]">
+      <h2 id="contact-title" class="mt-7 max-w-[733px] text-[clamp(2.75rem,7vw,68px)] font-bold leading-[1.05] tracking-[-0.015em]">
         {content.headline}
       </h2>
       <p class="mt-7 max-w-[566px] text-[19px] leading-[1.4] tracking-[-0.015em]">
@@ -59,13 +59,13 @@ const formspreeEndpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
       data-contact-panel
     >
       <div class="overflow-hidden">
-        <div class="max-w-[900px] pt-12">
+        <div class="max-w-[900px] pt-10 md:pt-12">
           <ContactForm content={content.form} action={formspreeEndpoint} />
         </div>
       </div>
     </div>
 
-    <footer class="mt-auto flex flex-col items-start justify-between gap-6 pt-14 sm:flex-row sm:items-end">
+    <footer class="mt-auto flex flex-col items-start justify-between gap-6 pt-12 sm:flex-row sm:items-end md:pt-14">
       <Logo label={site.name} />
       <p class="text-xs font-medium leading-[1.2] tracking-[-0.015em]">{content.footerMeta}</p>
     </footer>

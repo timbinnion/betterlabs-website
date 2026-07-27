@@ -7,6 +7,9 @@ const english: UiContent = {
     'Sustainable innovation expertise for products, strategies and business models.',
   skipLinkLabel: 'Skip to content',
   languageSwitcherLabel: 'Choose language',
+  primaryNavigationLabel: 'Primary navigation',
+  mobileMenuOpenLabel: 'Open menu',
+  mobileMenuCloseLabel: 'Close menu',
 };
 
 export const ui = untranslated(english);

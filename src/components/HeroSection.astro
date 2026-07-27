@@ -12,13 +12,13 @@ interface Props {
 const { content, locale } = Astro.props;
 ---
 
-<section class="relative isolate h-[900px] overflow-hidden bg-ink text-white">
+<section class="relative isolate min-h-[880px] overflow-hidden bg-ink text-white md:min-h-[900px]">
   <img
     src="/images/hero/hero-background.jpg"
     alt=""
     width="2200"
     height="1650"
-    class="absolute inset-0 -z-20 h-full w-full object-cover"
+    class="absolute inset-0 -z-20 h-full w-full object-cover object-[58%_center] md:object-center"
   />
   <div
     aria-hidden="true"
@@ -27,30 +27,30 @@ const { content, locale } = Astro.props;
 
   <SiteHeader content={content} locale={locale} />
 
-  <div class="site-container flex h-full flex-col pt-[122px]">
+  <div class="site-container flex min-h-[880px] flex-col pb-8 pt-[112px] md:min-h-[900px] md:pb-[30px] md:pt-[122px]">
     <div class="max-w-[1004px]">
-      <h1 class="text-[clamp(2.8rem,3.75vw,54px)] font-semibold leading-none tracking-[-0.015em]">
+      <h1 class="text-[clamp(2.35rem,8.5vw,54px)] font-bold leading-[1.02] tracking-[-0.015em]">
         <span class="block">{content.hero.eyebrow}</span>
         {
           content.hero.headline.map((line, index) => (
-            <span class:list={['block', index === 1 && 'mt-[54px]']}>{line}</span>
+            <span class:list={['block', index === 1 && 'mt-8 md:mt-[54px]']}>{line}</span>
           ))
         }
       </h1>
-      <p class="mt-6 max-w-[720px] text-[23px] leading-[1.4] tracking-[-0.015em]">
+      <p class="mt-6 max-w-[720px] text-[18px] leading-[1.45] tracking-[-0.015em] md:text-[23px] md:leading-[1.4]">
         {content.hero.body}
       </p>
-      <div class="mt-[34px] flex flex-wrap gap-3.5">
+      <div class="mt-7 flex flex-col items-start gap-3.5 sm:flex-row sm:flex-wrap md:mt-[34px]">
         <ButtonLink link={content.hero.primaryAction} />
         <ButtonLink link={content.hero.secondaryAction} variant="outline" />
       </div>
     </div>
 
     <div
-      class="mt-auto flex items-start justify-between pb-[30px] text-sm font-medium leading-[1.2] tracking-[-0.015em]"
+      class="mt-auto flex flex-col items-start gap-3 pt-8 text-sm font-medium leading-[1.3] tracking-[-0.015em] sm:flex-row sm:justify-between sm:gap-8"
     >
       <p>{content.hero.proof}</p>
-      <p class="text-right text-xs font-bold uppercase">{content.hero.location}</p>
+      <p class="text-left text-xs font-bold uppercase sm:text-right">{content.hero.location}</p>
     </div>
   </div>
 </section>
