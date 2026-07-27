@@ -31,5 +31,4 @@ export const contactForm: ContactFormContent = {
   closeLabel: 'Close form',
   successMessage: 'Thank you. Your enquiry has been sent.',
   errorMessage: 'Something went wrong. Please try again.',
-  endpointMissingMessage: 'The contact form is not configured yet. Please try again later.',
 };

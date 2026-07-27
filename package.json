@@ -12,6 +12,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "dev:worker": "npm run build && wrangler dev",
+    "worker:types": "wrangler types --include-env=false",
+    "deploy": "npm run build && wrangler deploy",
     "astro": "astro"
   },
   "dependencies": {
@@ -21,6 +24,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "wrangler": "^4.114.0"
   }
 }

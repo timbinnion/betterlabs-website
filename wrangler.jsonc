@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "betterlabs-website",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-07-27",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "vars": {
+    "CONTACT_EMAIL_TO": "hello@betterlabs.cc",
+    "CONTACT_EMAIL_FROM": "(better)labs Website <website@mail.betterlabs.cc>"
+  }
+}

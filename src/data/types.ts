@@ -152,7 +152,6 @@ export interface ContactFormContent {
   closeLabel: string;
   successMessage: string;
   errorMessage: string;
-  endpointMissingMessage: string;
 }
 
 export interface UiContent {

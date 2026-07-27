@@ -25,4 +25,4 @@ const { content, locale } = Astro.props;
 <WorkshopSection content={content.workshops} />
 <AudiencesSection content={content.audiences} />
 <AboutSection clients={content.clients} about={content.about} />
-<FinalCta content={content.cta} />
+<FinalCta content={content.cta} locale={locale} />
