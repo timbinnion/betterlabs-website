@@ -10,17 +10,21 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "check": "astro check",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-types": "wrangler types",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^14.1.4",
     "@tailwindcss/vite": "latest",
     "astro": "latest",
     "tailwindcss": "latest"
   },
   "devDependencies": {
     "@astrojs/check": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "wrangler": "^4.114.0"
   }
 }
