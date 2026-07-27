@@ -1,5 +1,6 @@
 ---
 import type { AboutContent, ClientsContent } from '../data/types';
+import ClientMarquee from './ClientMarquee.astro';
 
 interface Props {
   clients: ClientsContent;
@@ -11,12 +12,7 @@ const { clients, about } = Astro.props;
 
 <section id="about" aria-labelledby="about-title" class="scroll-mt-8 bg-white">
   <div class="site-container py-20 md:py-24 lg:py-[105px]">
-    <div class="flex flex-col items-start gap-7 pb-[38px] lg:flex-row lg:justify-between lg:gap-8">
-      <p class="eyebrow shrink-0">{clients.eyebrow}</p>
-      <ul class="flex w-full list-none flex-wrap gap-x-8 gap-y-5 p-0 text-[17px] font-bold leading-[1.2] tracking-[-0.015em] lg:flex-1 lg:justify-between lg:text-[18px]">
-        {clients.names.map((client) => <li>{client}</li>)}
-      </ul>
-    </div>
+    <ClientMarquee content={clients} />
 
     <div class="grid grid-cols-1 gap-[18px] md:grid-cols-2">
       {

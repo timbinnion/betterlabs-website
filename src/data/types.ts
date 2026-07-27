@@ -100,7 +100,14 @@ export interface AudiencesContent {
 
 export interface ClientsContent {
   eyebrow: string;
-  names: string[];
+  items: Array<{
+    name: string;
+    image: {
+      src: string;
+      alt: string;
+    };
+    visible?: boolean;
+  }>;
 }
 
 export interface AboutContent {
