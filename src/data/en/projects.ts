@@ -7,7 +7,7 @@ const frescoAirPurifier: ProjectContent = {
   summary:
     'Circular redesign of an air purifier to reduce carbon emissions and create a modular product-service system.',
   image: {
-    src: '/images/projects/fresco-air-purifier.jpg',
+    src: '/images/projects/fresco-web.jpg',
     alt: 'Fresco modular air purifier components arranged for inspection',
   },
   tags: ['Circular Design', 'LCA', 'Business Model'],
@@ -15,7 +15,8 @@ const frescoAirPurifier: ProjectContent = {
     { value: '-41%', label: 'carbon emissions' },
     { value: '+63%', label: 'three-year income' },
   ],
-  featured: true,
+  featured: false,
+  visible: true,
 };
 
 const eekoTable: ProjectContent = {
@@ -25,7 +26,7 @@ const eekoTable: ProjectContent = {
   summary:
     'A modular furniture system designed for longevity, repair and material recovery.',
   image: {
-    src: '/images/projects/eeko-table.jpg',
+    src: '/images/projects/eeko-table-web.jpg',
     alt: 'Eekö modular timber table in a studio setting',
   },
   tags: ['Furniture', 'Modularity', 'Buy-back'],
@@ -42,7 +43,7 @@ const circularExhibitionSystem: ProjectContent = {
   summary:
     'A reusable exhibition system designed to replace wasteful single-use builds.',
   image: {
-    src: '/images/projects/circular-exhibition-system.jpg',
+    src: '/images/projects/candex-web.jpg',
     alt: 'Reusable circular exhibition system assembled in an event space',
   },
   tags: ['Systems Design', 'LCA', 'Leasing'],
@@ -50,16 +51,18 @@ const circularExhibitionSystem: ProjectContent = {
     { value: '-90%', label: 'carbon emissions' },
     { value: 'Lease', label: 'business model' },
   ],
+  featured: false,
+  visible: true,
 };
 
 const elumin8HouseholdEnergyMonitoring: ProjectContent = {
   id: 'elumin8-household-energy-monitoring',
-  title: 'Elumin8 Household Energy Monitoring',
+  title: 'Elumin8 Energy Monitoring',
   category: 'Sustainable Innovation',
   summary:
     'A human-centred energy monitoring system that translated household electricity data into an intuitive physical display and digital experience, helping people understand and reduce their energy use.',
   image: {
-    src: '/images/projects/elumin8-household-energy-monitoring.jpg',
+    src: '/images/projects/elumin8-web.jpg',
     alt: 'Elumin8 household energy monitoring physical display and digital experience',
   },
   tags: ['Human-Centred Design', 'IoT Innovation', 'Behaviour Change'],
@@ -73,12 +76,12 @@ const elumin8HouseholdEnergyMonitoring: ProjectContent = {
 
 const sustainableProteinInnovationChina: ProjectContent = {
   id: 'sustainable-protein-innovation-china',
-  title: 'Sustainable Protein Innovation in China',
+  title: 'Sustainable Protein Innovation',
   category: 'Sustainable Strategy',
   summary:
     'Consumer research and innovation workshops helped Silver Fern Farms understand how sustainability is perceived in China and develop new product, packaging and communication opportunities aligned with local values.',
   image: {
-    src: '/images/projects/sustainable-protein-innovation-china.jpg',
+    src: '/images/projects/sff-web.jpg',
     alt: 'Sustainable protein consumer research and innovation workshop in China',
   },
   tags: ['Consumer Research', 'Innovation Strategy', 'Brand Positioning'],
@@ -92,12 +95,12 @@ const sustainableProteinInnovationChina: ProjectContent = {
 
 const circularityBootcampDescoursCabaud: ProjectContent = {
   id: 'circularity-bootcamp-descours-cabaud',
-  title: 'Circularity Bootcamp for Descours & Cabaud',
+  title: 'Circularity Bootcamp',
   category: 'Sustainability Education',
   summary:
     'A hands-on circularity programme that helped procurement and quality teams connect regulatory drivers with sourcing decisions, identify a priority product category and define practical decarbonisation initiatives.',
   image: {
-    src: '/images/projects/circularity-bootcamp-descours-cabaud.jpg',
+    src: '/images/projects/circular-bootcamp-web.jpg',
     alt: 'Descours & Cabaud teams participating in a circularity bootcamp',
   },
   tags: ['Circular Economy', 'Sustainable Procurement', 'Capability Building'],
@@ -105,7 +108,7 @@ const circularityBootcampDescoursCabaud: ProjectContent = {
     { value: '14', label: 'Participants' },
     { value: '1', label: 'Priority product line identified' },
   ],
-  featured: false,
+  featured: true,
   visible: true,
 };
 
@@ -116,7 +119,7 @@ const ruralInnovationSafari: ProjectContent = {
   summary:
     'A four-day field-based innovation programme in rural China, where international students used design research and co-creation to develop responses to local waste, safety and cultural challenges.',
   image: {
-    src: '/images/projects/rural-innovation-safari.jpg',
+    src: '/images/projects/rural-innovation-web.jpg',
     alt: 'International students conducting field research during the Rural Innovation Safari',
   },
   tags: ['Design Thinking', 'Field Research', 'Social Innovation'],
