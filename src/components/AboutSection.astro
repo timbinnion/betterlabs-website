@@ -17,8 +17,8 @@ const { clients, about } = Astro.props;
     <div class="grid grid-cols-1 gap-[18px] md:grid-cols-2">
       {
         about.stories.map((story) => (
-          <article class="overflow-hidden bg-ink text-white">
-            <div class="grid h-[220px] grid-cols-2 sm:h-[270px]">
+          <article class="story-card">
+            <div class="story-images">
               {
                 story.images.map((image) => (
                   <img
@@ -26,16 +26,13 @@ const { clients, about } = Astro.props;
                     alt={image.alt}
                     width="322"
                     height="421"
-                    class="h-full w-full object-cover"
                   />
                 ))
               }
             </div>
-            <div class="w-full bg-card-dark p-[18px] sm:p-5 lg:p-6">
-              <h3 class="text-[26px] font-bold leading-[1.2] lg:text-[32px]">{story.title}</h3>
-              <p class="mt-2.5 text-[13px] font-bold uppercase leading-[1.2] text-brand-green">
-                {story.category}
-              </p>
+            <div class="story-caption">
+              <h3>{story.title}</h3>
+              <p>{story.category}</p>
             </div>
           </article>
         ))
@@ -58,3 +55,66 @@ const { clients, about } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  .story-card {
+    overflow: hidden;
+    background: var(--color-ink);
+    color: white;
+  }
+
+  .story-images {
+    display: grid;
+    height: 220px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .story-images img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .story-caption {
+    width: 100%;
+    background: var(--color-card-dark);
+    padding: 18px;
+  }
+
+  .story-caption h3 {
+    color: white;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .story-caption p {
+    margin-top: 10px;
+    color: var(--color-brand-green);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 640px) {
+    .story-images {
+      height: 270px;
+    }
+
+    .story-caption {
+      padding: 20px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .story-caption {
+      padding: 24px;
+    }
+
+    .story-caption h3 {
+      font-size: 32px;
+    }
+  }
+</style>
