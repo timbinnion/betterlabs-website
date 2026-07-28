@@ -21,28 +21,34 @@ const featuredProjectId = featuredProject?.id;
 
 <section id="projects" aria-labelledby="projects-title" class="scroll-mt-8 overflow-hidden bg-white">
   <div class="site-container py-20 md:py-24 lg:py-[110px]">
-    <div class="flex flex-col items-start justify-between gap-7 sm:flex-row">
+    <div>
       <div>
         <p class="eyebrow">{content.eyebrow}</p>
         <h2 id="projects-title" class="mt-[14px] text-[clamp(2.25rem,5vw,56px)] font-bold leading-[1.08] tracking-[-0.015em]">
           {content.title}
         </h2>
       </div>
-      <div class="flex gap-2.5" data-carousel-controls>
-        <button type="button" class="carousel-control" data-carousel-previous aria-label={content.previousLabel}>
-          <span aria-hidden="true">01</span><span aria-hidden="true">←</span>
-        </button>
-        <button type="button" class="carousel-control carousel-control-next" data-carousel-next aria-label={content.nextLabel}>
-          <span aria-hidden="true">02</span><span aria-hidden="true">→</span>
-        </button>
-      </div>
     </div>
 
-    <div
-      class="project-track mt-10 flex snap-x snap-mandatory gap-[18px] overflow-x-auto overscroll-x-contain scroll-smooth pb-4 md:mt-[56px]"
-      data-project-carousel
-      tabindex="0"
-    >
+    <div class="project-carousel-shell">
+      <div class="project-carousel-controls" data-carousel-controls>
+        <button type="button" class="carousel-control carousel-control-previous" data-carousel-previous aria-label={content.previousLabel}>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M19 12H5M11 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <button type="button" class="carousel-control carousel-control-next" data-carousel-next aria-label={content.nextLabel}>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </button>
+      </div>
+
+      <div
+        class="project-track flex snap-x snap-mandatory gap-[18px] overflow-x-auto overscroll-x-contain scroll-smooth pb-4"
+        data-project-carousel
+        tabindex="0"
+      >
       {
         orderedProjects.map((project) => (
           <article
@@ -95,20 +101,30 @@ const featuredProjectId = featuredProject?.id;
           </article>
         ))
       }
+      </div>
     </div>
   </div>
 </section>
 
 <script>
   document.querySelectorAll<HTMLElement>('[data-project-carousel]').forEach((track) => {
-    const controls = track.parentElement?.querySelector<HTMLElement>('[data-carousel-controls]');
+    const shell = track.closest<HTMLElement>('.project-carousel-shell');
+    const controls = shell?.querySelector<HTMLElement>('[data-carousel-controls]');
     const previous = controls?.querySelector<HTMLButtonElement>('[data-carousel-previous]');
     const next = controls?.querySelector<HTMLButtonElement>('[data-carousel-next]');
 
     const move = (direction: number) => {
-      const card = track.querySelector<HTMLElement>('.project-card');
-      const distance = card ? card.offsetWidth + 18 : track.clientWidth;
-      track.scrollBy({ left: distance * direction, behavior: 'smooth' });
+      const cards = Array.from(track.querySelectorAll<HTMLElement>('.project-card'));
+      if (!cards.length) return;
+
+      const currentIndex = cards.reduce((closestIndex, card, index) => {
+        const currentDistance = Math.abs(cards[closestIndex].offsetLeft - track.scrollLeft);
+        const cardDistance = Math.abs(card.offsetLeft - track.scrollLeft);
+        return cardDistance < currentDistance ? index : closestIndex;
+      }, 0);
+      const targetIndex = Math.max(0, Math.min(cards.length - 1, currentIndex + direction));
+
+      track.scrollTo({ left: cards[targetIndex].offsetLeft, behavior: 'smooth' });
     };
 
     previous?.addEventListener('click', () => move(-1));

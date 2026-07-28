@@ -206,29 +206,53 @@ button {
 }
 
 .carousel-control {
-  display: inline-flex;
-  min-height: 49px;
-  align-items: center;
-  gap: 10px;
+  display: inline-grid;
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+  place-items: center;
   border: 1px solid var(--color-ink);
   border-radius: 999px;
-  background: transparent;
-  padding: 14px 22px;
+  background: white;
+  padding: 0;
   color: var(--color-ink);
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.2;
   cursor: pointer;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
 }
 
-.carousel-control-next {
+.carousel-control svg {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.carousel-control:hover {
   border-color: var(--color-brand-green);
   background: var(--color-brand-green);
+  color: white;
 }
 
 .carousel-control:focus-visible {
-  outline: 2px solid var(--color-ink);
+  outline: 3px solid var(--color-brand-green);
   outline-offset: 4px;
+}
+
+.project-carousel-shell {
+  position: relative;
+  margin-top: 40px;
+}
+
+.project-carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 24px;
 }
 
 .project-track {
@@ -344,8 +368,31 @@ select.form-control option {
     width: min(calc(100% - 2rem), 1248px);
   }
 
+}
+
+@media (min-width: 768px) {
+  .project-carousel-shell {
+    margin-top: 56px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .project-carousel-controls {
+    margin: 0;
+  }
+
   .carousel-control {
-    min-height: 44px;
-    padding: 11px 16px;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+  }
+
+  .carousel-control-previous {
+    left: -75px;
+  }
+
+  .carousel-control-next {
+    right: -75px;
   }
 }
