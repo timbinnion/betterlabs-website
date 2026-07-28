@@ -18,3 +18,8 @@ export const localeLabels: Record<Locale, string> = {
   en: 'English',
   zh: '中文',
 };
+
+export const localeLanguageTags: Record<Locale, string> = {
+  en: 'en',
+  zh: 'zh-CN',
+};

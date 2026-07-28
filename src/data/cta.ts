@@ -2,7 +2,7 @@ import { contactForm as chineseContactForm } from './cn/contact';
 import { contactForm as englishContactForm } from './en/contact';
 import type { CtaContent, Localized } from './types';
 
-const shared = {
+const english = {
   eyebrow: 'Have a sustainability challenge?',
   headline: 'What can we create (better) for you?',
   body:
@@ -16,7 +16,7 @@ const shared = {
 
 export const cta: Localized<CtaContent> = {
   en: {
-    ...shared,
+    ...english,
     wechat: {
       title: 'Prefer WeChat?',
       caption: 'Scan to connect directly.',
@@ -25,11 +25,18 @@ export const cta: Localized<CtaContent> = {
     form: englishContactForm,
   },
   zh: {
-    ...shared,
+    eyebrow: '面临可持续发展挑战？',
+    headline: '我们能为您创造怎样的更优方案？',
+    body: '无论是一款产品、一个系统，还是一项愿景，我们都能帮助您找到切实可行的前进路径。',
+    action: {
+      label: '开启合作交流',
+      href: 'mailto:hello@betterlabs.example',
+    },
+    footerMeta: '循环设计与创新 · 上海 · © 2026',
     wechat: {
-      title: '更喜欢使用微信？',
+      title: '更习惯使用微信？',
       caption: '扫描二维码即可联系。',
-      imageAlt: 'Better Labs WeChat QR code',
+      imageAlt: '(better)labs 微信二维码',
     },
     form: chineseContactForm,
   },

@@ -29,6 +29,28 @@
   text-rendering: optimizeLegibility;
 }
 
+html[lang="zh-CN"] {
+  font-family:
+    Inter,
+    "Noto Sans SC",
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    sans-serif;
+}
+
+html[lang="zh-CN"] body {
+  line-height: 1.65;
+}
+
+html[lang="zh-CN"] :where(h1, h2, h3, h4, p, a, button, label, input, select, textarea) {
+  letter-spacing: 0;
+}
+
+html[lang="zh-CN"] :where(h1, h2, h3, h4) {
+  line-height: 1.2;
+}
+
 *,
 *::before,
 *::after {

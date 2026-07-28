@@ -1,36 +1,35 @@
 import type { WorkshopsContent } from '../types';
 
-// English source copy is retained until the approved Chinese translation is ready.
 export const workshops: WorkshopsContent = {
-  eyebrow: 'Workshops and capability building',
-  headline: 'Projects improve products and systems. Workshops build the capability to act.',
+  eyebrow: '工作坊与能力建设',
+  headline: '项目优化产品与系统，工作坊则帮助团队建立行动能力。',
   positioning:
-    'Focused, practical sessions that help teams understand circular opportunities, align around priorities and turn sustainability ambition into action.',
+    '聚焦且务实的工作坊，帮助团队理解循环机会、明确共同优先事项，并将可持续愿景转化为具体行动。',
   image: {
     src: '/images/about/bootcamp-activity.jpg',
-    alt: 'Participants collaborating during a (better)labs circularity workshop',
+    alt: '参与者在 (better)labs 循环经济工作坊中协作',
   },
   offerings: [
     {
       id: 'circularity-bootcamp',
-      title: 'Circularity Bootcamp',
-      description: 'Build a shared foundation in circular design and business thinking.',
+      title: 'Circularity Bootcamp（循环经济训练营）',
+      description: '建立团队对循环设计与商业思维的共同基础。',
     },
     {
       id: 'circular-reimagination',
-      title: 'Circular Reimagination Workshop',
-      description: 'Reimagine an existing product, service or system through a circular lens.',
+      title: '循环再想象工作坊',
+      description: '从循环视角重新构想现有产品、服务或系统。',
     },
     {
       id: 'value-mapping',
-      title: 'Value Mapping Workshop',
-      description: 'Reveal environmental, customer and commercial value across the system.',
+      title: '价值图谱工作坊',
+      description: '识别系统中的环境价值、客户价值与商业价值。',
     },
     {
       id: 'emotional-durability',
-      title: 'Emotional Durability Workshop',
-      description: 'Explore how meaning, attachment and care can extend product life.',
+      title: '情感耐久性工作坊',
+      description: '探索如何通过意义、情感连接与关怀延长产品寿命。',
     },
   ],
-  bespoke: 'Bespoke workshops and training programmes are also available.',
+  bespoke: '亦可根据组织需求定制工作坊与培训项目。',
 };

@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { site } from '../data/site';
+import { localePaths, site } from '../data/site';
 
 interface Props {
   title?: string;
@@ -17,6 +17,8 @@ const pageDescription =
   'Helping manufacturers, brands and businesses redesign products, services and strategies for a more sustainable future.';
 const canonicalUrl = new URL(Astro.url.pathname, site.url).toString();
 const socialImageUrl = new URL('/images/brand/og-image.jpg', site.url).toString();
+const englishUrl = new URL(localePaths.en, site.url).toString();
+const chineseUrl = new URL(localePaths.zh, site.url).toString();
 ---
 
 <!doctype html>
@@ -29,6 +31,9 @@ const socialImageUrl = new URL('/images/brand/og-image.jpg', site.url).toString(
     <meta name="theme-color" content="#39B54A" />
     <meta name="color-scheme" content="light" />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={englishUrl} />
+    <link rel="alternate" hreflang="zh-CN" href={chineseUrl} />
+    <link rel="alternate" hreflang="x-default" href={englishUrl} />
 
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />

@@ -2,6 +2,7 @@
 import type { HomepageContent } from '../data/homepage';
 import {
   localeLabels,
+  localeLanguageTags,
   localePaths,
   site,
   supportedLocales,
@@ -19,6 +20,7 @@ interface Props {
 const { content, locale } = Astro.props;
 const languageOptions = supportedLocales.map((optionLocale) => ({
   locale: optionLocale,
+  languageTag: localeLanguageTags[optionLocale],
   label: localeLabels[optionLocale],
   href: localePaths[optionLocale],
 }));

@@ -1,73 +1,69 @@
 import type { ProjectContent, ProjectsContent } from '../types';
 
-// English source copy is retained until the approved Chinese translation is ready.
 const frescoAirPurifier: ProjectContent = {
   id: 'fresco-air-purifier',
-  title: 'Fresco Air Purifier',
-  category: 'Circular product design',
-  summary:
-    'Circular redesign of an air purifier to reduce carbon emissions and create a modular product-service system.',
+  title: 'Fresco 空气净化器',
+  category: '循环产品设计',
+  summary: '通过循环设计重新定义空气净化器，在降低碳排放的同时打造模块化产品服务系统。',
   image: {
-    src: '/images/projects/fresco-air-purifier.jpg',
-    alt: 'Fresco modular air purifier components arranged for inspection',
+    src: '/images/projects/fresco-web.jpg',
+    alt: 'Fresco 模块化空气净化器部件展示',
   },
-  tags: ['Circular Design', 'LCA', 'Business Model'],
+  tags: ['循环设计', '生命周期评估（LCA）', '商业模式'],
   metrics: [
-    { value: '-41%', label: 'carbon emissions' },
-    { value: '+63%', label: 'three-year income' },
+    { value: '-41%', label: '碳排放' },
+    { value: '+63%', label: '三年收益' },
   ],
   featured: true,
 };
 
 const eekoTable: ProjectContent = {
   id: 'eeko-table',
-  title: 'Eekö Table',
-  category: 'Circular furniture',
-  summary:
-    'A modular furniture system designed for longevity, repair and material recovery.',
+  title: 'Eekö 桌',
+  category: '循环家具',
+  summary: '一个以耐用性、可维修性与材料回收为核心的模块化家具系统。',
   image: {
-    src: '/images/projects/eeko-table.jpg',
-    alt: 'Eekö modular timber table in a studio setting',
+    src: '/images/projects/eeko-table-web.jpg',
+    alt: '工作室中的 Eekö 模块化木桌',
   },
-  tags: ['Furniture', 'Modularity', 'Buy-back'],
+  tags: ['家具', '模块化', '回购模式'],
   metrics: [
-    { value: '-40%', label: 'material impact' },
-    { value: '+45%', label: 'product lifetime' },
+    { value: '-40%', label: '材料影响' },
+    { value: '+45%', label: '产品寿命' },
   ],
 };
 
 const circularExhibitionSystem: ProjectContent = {
   id: 'circular-exhibition-system',
-  title: 'Circular Exhibition System',
-  category: 'Reusable systems',
-  summary:
-    'A reusable exhibition system designed to replace wasteful single-use builds.',
+  title: '循环展览系统',
+  category: '可重复使用系统',
+  summary: '一个可重复使用的展览系统，以循环方案取代一次性展台搭建。',
   image: {
-    src: '/images/projects/circular-exhibition-system.jpg',
-    alt: 'Reusable circular exhibition system assembled in an event space',
+    src: '/images/projects/candex-web.jpg',
+    alt: '活动现场搭建的循环展览系统',
   },
-  tags: ['Systems Design', 'LCA', 'Leasing'],
+  tags: ['系统设计', '生命周期评估（LCA）', '租赁模式'],
   metrics: [
-    { value: '-90%', label: 'carbon emissions' },
-    { value: 'Lease', label: 'business model' },
+    { value: '-90%', label: '碳排放' },
+    { value: '租赁', label: '商业模式' },
   ],
   visible: true,
 };
 
 const elumin8HouseholdEnergyMonitoring: ProjectContent = {
   id: 'elumin8-household-energy-monitoring',
-  title: 'Elumin8 Household Energy Monitoring',
-  category: 'Sustainable Innovation',
+  title: 'Elumin8 能源监测系统',
+  category: '可持续创新',
   summary:
-    'A human-centred energy monitoring system that translated household electricity data into an intuitive physical display and digital experience, helping people understand and reduce their energy use.',
+    '以人为本的能源监测系统，将家庭用电数据转化为直观的实体装置与数字体验，帮助用户理解并降低能源消耗。',
   image: {
-    src: '/images/projects/elumin8-household-energy-monitoring.jpg',
-    alt: 'Elumin8 household energy monitoring physical display and digital experience',
+    src: '/images/projects/elumin8-web.jpg',
+    alt: 'Elumin8 家庭能源监测实体装置与数字体验',
   },
-  tags: ['Human-Centred Design', 'IoT Innovation', 'Behaviour Change'],
+  tags: ['以人为本的设计', 'IoT 创新', '行为改变'],
   metrics: [
-    { value: '2', label: 'Markets explored' },
-    { value: '1', label: 'Functional MVP developed' },
+    { value: '2', label: '目标市场' },
+    { value: '1', label: '功能性 MVP' },
   ],
   featured: false,
   visible: true,
@@ -75,18 +71,18 @@ const elumin8HouseholdEnergyMonitoring: ProjectContent = {
 
 const sustainableProteinInnovationChina: ProjectContent = {
   id: 'sustainable-protein-innovation-china',
-  title: 'Sustainable Protein Innovation in China',
-  category: 'Sustainable Strategy',
+  title: '可持续蛋白创新',
+  category: '可持续战略',
   summary:
-    'Consumer research and innovation workshops helped Silver Fern Farms understand how sustainability is perceived in China and develop new product, packaging and communication opportunities aligned with local values.',
+    '通过消费者研究与创新工作坊，帮助 Silver Fern Farms 理解中国消费者对可持续发展的认知，并探索符合本地市场的新产品、包装与品牌传播机会。',
   image: {
-    src: '/images/projects/sustainable-protein-innovation-china.jpg',
-    alt: 'Sustainable protein consumer research and innovation workshop in China',
+    src: '/images/projects/sff-web.jpg',
+    alt: '中国可持续蛋白消费者研究与创新工作坊',
   },
-  tags: ['Consumer Research', 'Innovation Strategy', 'Brand Positioning'],
+  tags: ['消费者研究', '创新战略', '品牌定位'],
   metrics: [
-    { value: '1', label: 'Sustainability framework' },
-    { value: '3', label: 'Innovation territories explored' },
+    { value: '1', label: '可持续框架' },
+    { value: '3', label: '创新机会领域' },
   ],
   featured: false,
   visible: true,
@@ -94,18 +90,18 @@ const sustainableProteinInnovationChina: ProjectContent = {
 
 const circularityBootcampDescoursCabaud: ProjectContent = {
   id: 'circularity-bootcamp-descours-cabaud',
-  title: 'Circularity Bootcamp for Descours & Cabaud',
-  category: 'Sustainability Education',
+  title: '循环经济训练营',
+  category: '可持续教育',
   summary:
-    'A hands-on circularity programme that helped procurement and quality teams connect regulatory drivers with sourcing decisions, identify a priority product category and define practical decarbonisation initiatives.',
+    '一个以实践为导向的循环经济训练营，帮助采购与质量团队连接法规要求与采购决策，识别重点产品类别，并制定切实可行的脱碳行动。',
   image: {
-    src: '/images/projects/circularity-bootcamp-descours-cabaud.jpg',
-    alt: 'Descours & Cabaud teams participating in a circularity bootcamp',
+    src: '/images/projects/circular-bootcamp-web.jpg',
+    alt: 'Descours & Cabaud 团队参与循环经济训练营',
   },
-  tags: ['Circular Economy', 'Sustainable Procurement', 'Capability Building'],
+  tags: ['循环经济', '可持续采购', '能力建设'],
   metrics: [
-    { value: '14', label: 'Participants' },
-    { value: '1', label: 'Priority product line identified' },
+    { value: '14', label: '参与人数' },
+    { value: '1', label: '确定重点产品线' },
   ],
   featured: false,
   visible: true,
@@ -113,28 +109,28 @@ const circularityBootcampDescoursCabaud: ProjectContent = {
 
 const ruralInnovationSafari: ProjectContent = {
   id: 'rural-innovation-safari',
-  title: 'Rural Innovation Safari',
-  category: 'Sustainability Education',
+  title: '乡村创新探索营',
+  category: '可持续教育',
   summary:
-    'A four-day field-based innovation programme in rural China, where international students used design research and co-creation to develop responses to local waste, safety and cultural challenges.',
+    '一个为期四天的中国乡村实地创新项目，国际学生通过设计研究与共同创造，为当地废弃物、安全与文化挑战提出创新解决方案。',
   image: {
-    src: '/images/projects/rural-innovation-safari.jpg',
-    alt: 'International students conducting field research during the Rural Innovation Safari',
+    src: '/images/projects/rural-innovation-web.jpg',
+    alt: '国际学生在乡村创新探索营开展实地调研',
   },
-  tags: ['Design Thinking', 'Field Research', 'Social Innovation'],
+  tags: ['设计思维', '实地调研', '社会创新'],
   metrics: [
-    { value: '4 days', label: 'Immersive field programme' },
-    { value: '3', label: 'Challenge areas explored' },
+    { value: '4 天', label: '沉浸式实地项目' },
+    { value: '3', label: '探索议题' },
   ],
   featured: false,
   visible: true,
 };
 
 export const projects: ProjectsContent = {
-  eyebrow: 'Selected work',
-  title: 'Proof, not promises.',
-  previousLabel: 'Previous project',
-  nextLabel: 'Next project',
+  eyebrow: '精选项目',
+  title: '用成果证明，而非空谈承诺。',
+  previousLabel: '上一个项目',
+  nextLabel: '下一个项目',
   items: [
     frescoAirPurifier,
     eekoTable,

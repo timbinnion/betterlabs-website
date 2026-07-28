@@ -170,10 +170,3 @@ export interface UiContent {
   mobileMenuOpenLabel: string;
   mobileMenuCloseLabel: string;
 }
-
-export function untranslated<T>(content: T): Localized<T> {
-  return {
-    en: content,
-    zh: content,
-  };
-}
