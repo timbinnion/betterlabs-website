@@ -33,7 +33,7 @@ const { content, locale } = Astro.props;
 
   <div class="site-container flex min-h-[746px] flex-col py-20 md:py-24 lg:py-[122px]">
     <div>
-      <p class="eyebrow text-white">{content.eyebrow}</p>
+      <p class="eyebrow cta-eyebrow">{content.eyebrow}</p>
       <h2 id="contact-title" class="mt-7 max-w-[733px] text-[clamp(2.75rem,7vw,68px)] font-bold leading-[1.05] tracking-[-0.015em]">
         {content.headline}
       </h2>
@@ -74,6 +74,12 @@ const { content, locale } = Astro.props;
     </footer>
   </div>
 </section>
+
+<style>
+  .cta-eyebrow {
+    color: white;
+  }
+</style>
 
 <script>
   document.querySelectorAll<HTMLElement>('[data-contact-cta]').forEach((cta) => {
