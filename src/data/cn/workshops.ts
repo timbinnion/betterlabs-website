@@ -2,7 +2,7 @@ import type { WorkshopsContent } from '../types';
 
 export const workshops: WorkshopsContent = {
   eyebrow: '工作坊与能力建设',
-  headline: '项目优化产品与系统，工作坊则帮助团队建立行动能力。',
+  headline: '我们的工作坊：帮助团队建立行动能力。',
   positioning:
     '聚焦且务实的工作坊，帮助团队理解循环机会、明确共同优先事项，并将可持续愿景转化为具体行动。',
   image: {

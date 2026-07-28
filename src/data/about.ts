@@ -50,7 +50,10 @@ const english: AboutContent = {
 const chinese: AboutContent = {
   eyebrow: '关于 (better)labs',
   statement: ['工程的严谨。', '设计的想象力。', '可持续发展的专业能力。'],
-  body: ['(better)labs 融合工程、设计与可持续发展专业能力，帮助组织将愿景转化为行动。'],
+  body: [
+    '(better)labs 帮助具有前瞻视野的制造商、品牌与企业重新设计产品、战略与商业模式，在降低环境影响的同时提升投资回报。',
+    '我们融合循环设计、战略创新与教育赋能的专业能力，帮助企业将可持续发展从合规要求转化为竞争优势。',
+  ],
   founder: '由常驻上海的产品设计工程师与可持续发展顾问 Tim Binnion 创立。',
   stories: [
     {

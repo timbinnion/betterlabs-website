@@ -42,7 +42,7 @@ const english: ServicesContent = {
 
 const chinese: ServicesContent = {
   eyebrow: '我们的服务',
-  title: '三种方式，将可持续愿景转化为行动。',
+  title: '我们的服务：三种路径，将愿景转化为行动。',
   introduction: '以技术理解产品，以战略洞察系统，以实践推动团队付诸行动。',
   items: [
     {

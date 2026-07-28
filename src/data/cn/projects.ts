@@ -127,8 +127,8 @@ const ruralInnovationSafari: ProjectContent = {
 };
 
 export const projects: ProjectsContent = {
-  eyebrow: '精选项目',
-  title: '用成果证明，而非空谈承诺。',
+  eyebrow: '过往项目',
+  title: '我们的项目：以成果说话，不止于承诺。',
   previousLabel: '上一个项目',
   nextLabel: '下一个项目',
   items: [

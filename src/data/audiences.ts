@@ -30,24 +30,25 @@ const english: AudiencesContent = {
 
 const chinese: AudiencesContent = {
   eyebrow: '我们的合作对象',
-  title: '为需要将可持续发展落到实处的团队而设计。',
+  title: '我们为三类核心客户创造最大价值。',
   items: [
     {
       id: 'manufacturers',
       title: '产品设计师与制造商',
-      body: '通过循环设计打造面向未来的产品。',
+      body: '通过循环设计与可量化的环境绩效，帮助产品提升面向未来的竞争力。',
       icon: '/images/audiences/manufacturers.png',
     },
     {
       id: 'brands',
       title: '有 ESG 承诺的品牌与企业',
-      body: '将可持续承诺转化为客户价值。',
+      body:
+        '通过可持续设计、战略与可量化的成果，帮助大型组织实现更具雄心的 ESG 目标并建立市场领导力。',
       icon: '/images/audiences/brands.png',
     },
     {
       id: 'experience-companies',
       title: '零售、展览与活动公司',
-      body: '打造低碳空间、可重复使用的系统与循环体验。',
+      body: '提供低碳、模块化的可持续空间解决方案，满足客户的 ESG 要求。',
       icon: '/images/audiences/experience-companies.png',
     },
   ],
