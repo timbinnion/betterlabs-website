@@ -2,9 +2,15 @@ import type { AboutContent } from './types';
 
 const english: AboutContent = {
   eyebrow: 'About (better)labs',
-  statement: 'Engineering rigour. Design imagination. Sustainability expertise.',
-  body:
-    '(better)labs combines engineering, design and sustainability expertise to help organisations move from ambition to action.',
+  statement: [
+    'Engineering rigour.',
+    'Design imagination.',
+    'Sustainability expertise.',
+  ],
+  body: [
+    '(better)labs helps forward-thinking manufacturers, brands, and businesses redesign products, strategies, and business models that cut environmental impact while boosting ROI.',
+    'We combine expertise in circular design, strategic innovation, and education to turn sustainability from a compliance exercise into a competitive advantage.',
+  ],
   founder:
     'Founded by Tim Binnion, product design engineer and sustainability consultant based in Shanghai.',
   stories: [
@@ -43,8 +49,8 @@ const english: AboutContent = {
 
 const chinese: AboutContent = {
   eyebrow: '关于 (better)labs',
-  statement: '工程的严谨。设计的想象力。可持续发展的专业能力。',
-  body: '(better)labs 融合工程、设计与可持续发展专业能力，帮助组织将愿景转化为行动。',
+  statement: ['工程的严谨。', '设计的想象力。', '可持续发展的专业能力。'],
+  body: ['(better)labs 融合工程、设计与可持续发展专业能力，帮助组织将愿景转化为行动。'],
   founder: '由常驻上海的产品设计工程师与可持续发展顾问 Tim Binnion 创立。',
   stories: [
     {

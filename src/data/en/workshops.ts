@@ -2,7 +2,7 @@ import type { WorkshopsContent } from '../types';
 
 export const workshops: WorkshopsContent = {
   eyebrow: 'Workshops and capability building',
-  headline: 'Projects improve products and systems. Workshops build the capability to act.',
+  headline: 'Our Workshops: Building the capability to act.',
   positioning:
     'Focused, practical sessions that help teams understand circular opportunities, align around priorities and turn sustainability ambition into action.',
   image: {

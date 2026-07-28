@@ -112,8 +112,8 @@ export interface ClientsContent {
 
 export interface AboutContent {
   eyebrow: string;
-  statement: string;
-  body: string;
+  statement: string[];
+  body: string[];
   founder: string;
   stories: Array<{
     id: string;

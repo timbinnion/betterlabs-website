@@ -42,12 +42,20 @@ const { clients, about } = Astro.props;
     <div class="mt-[54px] grid grid-cols-1 gap-10 border-t border-divider pt-12 xl:grid-cols-[minmax(0,720px)_minmax(0,390px)] xl:gap-[70px]">
       <div>
         <p class="eyebrow">{about.eyebrow}</p>
-        <h2 id="about-title" class="mt-5 max-w-[720px] text-[clamp(2.25rem,4vw,44px)] font-bold leading-[1.1] tracking-[-0.015em]">
-          {about.statement}
+        <h2 id="about-title" class="about-heading mt-5 max-w-[720px] text-[clamp(2.25rem,4vw,44px)] font-bold leading-[1.1] tracking-[-0.015em]">
+          {about.statement.map((line) => <span class="block">{line}</span>)}
         </h2>
       </div>
       <div>
-        <p class="text-[18px] leading-[1.45] tracking-[-0.015em] text-muted">{about.body}</p>
+        <div class="space-y-[18px]">
+          {
+            about.body.map((paragraph) => (
+              <p class="text-[18px] leading-[1.45] tracking-[-0.015em] text-muted">
+                {paragraph}
+              </p>
+            ))
+          }
+        </div>
         <p class="mt-[18px] text-[15px] font-semibold leading-[1.45] tracking-[-0.015em]">
           {about.founder}
         </p>
@@ -118,6 +126,12 @@ const { clients, about } = Astro.props;
 
     .story-caption h3 {
       font-size: 32px;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .about-heading {
+      font-size: clamp(22px, 7vw, 36px);
     }
   }
 </style>

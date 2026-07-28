@@ -10,6 +10,13 @@ interface Props {
 }
 
 const { content, locale } = Astro.props;
+const serviceLines = content.hero.headline.slice(1).map((line) => {
+  const match = line.match(/^(\([^)]*\)|（[^）]*）)\s*(.*)$/);
+
+  return match
+    ? { prefix: match[1], label: match[2] }
+    : { prefix: '', label: line };
+});
 ---
 
 <section class="relative isolate min-h-[880px] overflow-hidden bg-ink text-white md:min-h-[900px]">
@@ -34,8 +41,15 @@ const { content, locale } = Astro.props;
         <span class="block">{content.hero.headline[0]}</span>
         <span class="mt-8 block md:mt-[54px]">{content.hero.servicesLead}</span>
         {
-          content.hero.headline.slice(1).map((line) => (
-            <span class="block">{line}</span>
+          serviceLines.map((line) => (
+            <span class="block">
+              {line.prefix && (
+                <>
+                  <span class="max-sm:block">{line.prefix}</span>{' '}
+                </>
+              )}
+              <span class="max-sm:block">{line.label}</span>
+            </span>
           ))
         }
       </h1>

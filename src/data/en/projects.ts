@@ -132,8 +132,8 @@ const ruralInnovationSafari: ProjectContent = {
 };
 
 export const projects: ProjectsContent = {
-  eyebrow: 'Selected work',
-  title: 'Proof, not promises.',
+  eyebrow: 'Past Projects',
+  title: 'Our Work: Proof, not promises.',
   previousLabel: 'Previous project',
   nextLabel: 'Next project',
   // Add a project by copying one typed object above, adding its local image,

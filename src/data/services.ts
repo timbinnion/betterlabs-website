@@ -2,7 +2,7 @@ import type { ServicesContent } from './types';
 
 const english: ServicesContent = {
   eyebrow: 'What we do',
-  title: 'Three ways to move from ambition to action.',
+  title: 'Our Services: Three ways to move from ambition to action.',
   introduction:
     'Technical enough to understand products. Strategic enough to understand systems. Practical enough to help teams make something happen.',
   items: [

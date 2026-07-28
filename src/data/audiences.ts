@@ -2,25 +2,28 @@ import type { AudiencesContent } from './types';
 
 const english: AudiencesContent = {
   eyebrow: 'Who we work with',
-  title: 'Built for people who need sustainability to become practical.',
+  title: 'Three core client types where we create the most value.',
   items: [
     {
       id: 'manufacturers',
-      title: 'Product designers and manufacturers',
-      body: 'Future-proof products through circular design.',
+      title: 'Product Designers and Manufacturers',
+      body:
+        'Future-proofing products through circular design and measurable environmental impact.',
       icon: '/images/audiences/manufacturers.png',
     },
     {
-      id: 'brands',
-      title: 'Brands and businesses with ESG commitments',
-      body: 'Turn sustainability commitments into customer value.',
-      icon: '/images/audiences/brands.png',
+      id: 'experience-companies',
+      title: 'Retail, Exhibition, and Event Companies',
+      body:
+        'Delivering low-carbon, modular solutions for sustainable spaces that meet client ESG demands.',
+      icon: '/images/audiences/experience-companies.png',
     },
     {
-      id: 'experience-companies',
-      title: 'Retail, exhibition and event companies',
-      body: 'Create low-carbon spaces, reusable systems and circular experiences.',
-      icon: '/images/audiences/experience-companies.png',
+      id: 'brands',
+      title: 'Brands and Businesses with ESG Commitments',
+      body:
+        'Helping large organisations achieve ambitious ESG goals and market leadership through sustainable design, strategy, and measurable impact.',
+      icon: '/images/audiences/brands.png',
     },
   ],
 };
